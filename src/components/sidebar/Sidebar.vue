@@ -15,8 +15,9 @@ export default {
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <h1>
       <span v-if="collapsed">
-        <div>V</div>
-        <div>S</div>
+        <div>
+          <img alt="Vue logo" src="../../assets/logo.png" height="38" />
+        </div>
       </span>
       <span v-else> Vue Sidebar </span>
     </h1>
