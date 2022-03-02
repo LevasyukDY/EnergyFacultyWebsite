@@ -1,8 +1,12 @@
+<script>
+import Sidebar from "@/components/sidebar/Sidebar";
+export default {
+  components: { Sidebar },
+};
+</script>
+
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <Sidebar />
   <router-view />
 </template>
 
