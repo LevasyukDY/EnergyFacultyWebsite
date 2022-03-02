@@ -1,4 +1,7 @@
-![logo](/src/assets/logo.png)
+<p align="center" width="100%">
+    <img width="33%" src="./src/assets/logo.png"> 
+</p>
+
 
 ![](https://img.shields.io/npm/v/npm)
 ![](https://img.shields.io/github/languages/code-size/LevasyukDY/EnergyFacultyWebsite) 
@@ -10,22 +13,22 @@
 
 В данном репозитории представлен исходный код фронтенд-части сайта энергетического факультета.
 
-## Project setup
+## Установка проекта
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Компиляция и быстрая-перезагрузка для разработки
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Компиляция и минификация для продакшена
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### Lints и fixes файлы
 ```
 npm run lint
 ```
