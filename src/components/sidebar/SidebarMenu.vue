@@ -16,10 +16,14 @@ export default {
     <h1>
       <span v-if="collapsed">
         <div>
-          <img alt="Vue logo" src="../../assets/logo.png" height="38" />
+          <img alt="logo" src="../../assets/logo.png" height="38" />
         </div>
       </span>
-      <span v-else> Vue Sidebar </span>
+      <span v-else>
+        <div>
+          <img alt="logo" src="../../assets/logo.png" height="92" />
+        </div>
+      </span>
     </h1>
 
     <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
@@ -40,9 +44,9 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: #2f855a;
-  --sidebar-item-hover: #38a169;
-  --sidebar-item-active: #276749;
+  --sidebar-bg-color: #2f5185;
+  --sidebar-item-hover: #3862a1;
+  --sidebar-item-active: #273667;
 }
 </style>
 
