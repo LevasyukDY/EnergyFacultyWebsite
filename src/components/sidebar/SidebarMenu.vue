@@ -21,7 +21,7 @@ export default {
       </span>
       <span v-else>
         <div>
-          <img alt="logo" src="../../assets/logo.png" height="92" />
+          <img alt="logo" src="../../assets/logo.png" height="80" />
         </div>
       </span>
     </h1>
@@ -71,6 +71,8 @@ export default {
 
 .sidebar h1 {
   height: 2.5em;
+  margin-block-start: 0;
+  margin-block-end: 0.4em;
 }
 
 .collapse-icon {
