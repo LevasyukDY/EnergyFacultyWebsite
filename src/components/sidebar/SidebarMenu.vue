@@ -26,11 +26,21 @@ export default {
       </span>
     </h1>
 
-    <SidebarLink to="/" icon="fas fa-home">Home</SidebarLink>
-    <SidebarLink to="/dashboard" icon="fas fa-columns">Dashboard</SidebarLink>
-    <SidebarLink to="/analytics" icon="fas fa-chart-bar">Analytics</SidebarLink>
-    <SidebarLink to="/friends" icon="fas fa-users">Friends</SidebarLink>
-    <SidebarLink to="/image" icon="fas fa-image">Images</SidebarLink>
+    <SidebarLink to="/" icon="fas fa-home">Главная</SidebarLink>
+
+    <SidebarLink to="/faculty" icon="fas fa-landmark">Факультет</SidebarLink>
+
+    <SidebarLink to="/news" icon="fas fa-newspaper">Новости</SidebarLink>
+
+    <SidebarLink to="/students" icon="fas fa-graduation-cap">
+      Студентам
+    </SidebarLink>
+
+    <SidebarLink to="/abiturients" icon="fas fa-users">
+      Абитуриентам
+    </SidebarLink>
+
+    <SidebarLink to="/contacts" icon="fas fa-phone">Контакты</SidebarLink>
 
     <span
       class="collapse-icon"
@@ -57,7 +67,7 @@ export default {
 
   float: left;
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   top: 0;
   left: 0;
   bottom: 0;

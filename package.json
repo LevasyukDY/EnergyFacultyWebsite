@@ -12,11 +12,13 @@
     "core-js": "^3.21.1",
     "vue": "^3.2.31",
     "vue-router": "^4.0.13",
+    "vueperslides": "^3.3.2",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
+    "@babel/eslint-parser": "^7.5.4",
     "@babel/preset-env": "^7.16.11",
     "@vue/cli-plugin-babel": "^5.0.1",
     "@vue/cli-plugin-eslint": "^5.0.1",
@@ -24,7 +26,6 @@
     "@vue/cli-service": "^5.0.1",
     "@vue/compiler-sfc": "^3.2.31",
     "@vue/eslint-config-prettier": "^7.0.0",
-    "@babel/eslint-parser": "^7.5.4",
     "eslint": "^8.10.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",

@@ -8,14 +8,29 @@ const routes = [
     component: Home,
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: () => import("../views/DashboardPage.vue"),
+    path: "/faculty",
+    name: "Faculty",
+    component: () => import("../views/FacultyPage.vue"),
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/AboutPage.vue"),
+    path: "/news",
+    name: "News",
+    component: () => import("../views/NewsPage.vue"),
+  },
+  {
+    path: "/students",
+    name: "Students",
+    component: () => import("../views/StudentsPage.vue"),
+  },
+  {
+    path: "/abiturients",
+    name: "Abiturients",
+    component: () => import("../views/AbiturientsPage.vue"),
+  },
+  {
+    path: "/contacts",
+    name: "Contacts",
+    component: () => import("../views/ContactsPage.vue"),
   },
 ];
 
