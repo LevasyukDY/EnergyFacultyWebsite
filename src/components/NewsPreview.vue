@@ -13,11 +13,12 @@
 
 <style scoped>
 img {
-  width: 200px;
+  width: 220px;
   height: 200px;
-  margin: 0 15px 0 15px;
+  margin: 10px;
   max-height: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 a {
   float: right;
