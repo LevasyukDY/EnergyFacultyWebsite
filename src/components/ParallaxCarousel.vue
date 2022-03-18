@@ -57,4 +57,32 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.vueperslides {
+  padding: 20px;
+}
+.vueperslides__parallax-wrapper {
+  border-radius: 20px;
+}
+.vueperslide__content-wrapper {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.vueperslide__title {
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #ff9845;
+}
+.vueperslide__content {
+  color: #fff;
+  background-color: #ff9845;
+}
+@media (max-width: 600px) {
+  .vueperslide__title {
+    font-size: 1em;
+  }
+  .vueperslide__content {
+    font-size: 0.65em;
+  }
+}
+</style>
