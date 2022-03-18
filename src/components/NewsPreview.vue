@@ -13,9 +13,9 @@
 
 <style scoped>
 img {
-  width: 220px;
+  width: 23.4%;
   height: 200px;
-  margin: 10px;
+  margin: 5px;
   max-height: 100%;
   object-fit: cover;
   border-radius: 5px;
