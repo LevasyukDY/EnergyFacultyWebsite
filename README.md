@@ -9,9 +9,11 @@
 ![](https://img.shields.io/badge/partner-github.com%2FTseplyaevAF-red)
 
 
-# Информационный сервис энергетического факультета Забайкальского государственного университета
+# Информационный сервис ЭФ ЗабГУ
 
 В данном репозитории представлен исходный код frontend-части сайта энергетического факультета.
+
+Исходный код телеграм бота вы можете найти [в моём репозитории](https://github.com/LevasyukDY/EnergyFacultyTelegramBot)
 
 Исходный код backend вы можете найти [в репозитории](https://github.com/TseplyaevAF/energy_faculty) моего партнёра.
 
