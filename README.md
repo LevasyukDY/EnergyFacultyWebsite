@@ -20,7 +20,7 @@
 
 ## Структура проекта
 
-```py
+```
 ├── babel.config.json
 ├── package-lock.json
 ├── package.json                # конфиг всех необходимых пакетов для проекта
