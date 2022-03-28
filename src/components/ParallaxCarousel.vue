@@ -8,7 +8,7 @@
     <vueper-slide
       v-for="(slide, i) in slides"
       :key="i"
-      :image="slide.preview"
+      :image="storageURL + slide.preview"
       :title="parallaxFixedContent ? slide.title : ''"
       :content="parallaxFixedContent ? slide.content : ''"
     />
@@ -25,6 +25,7 @@ export default {
   data: () => ({
     parallax: 1,
     parallaxFixedContent: true,
+    storageURL: "http://127.0.0.1:8000/storage/",
     slides: [],
     // slides: [
     //   {
@@ -43,7 +44,7 @@ export default {
   mounted() {
     axios
       .get("http://127.0.0.1:8000/api/news?is_slider_item=1")
-      .then((response) => (this.slides = response.data.data));
+      .then((response) => (this.slides = response.data));
   },
 };
 </script>
