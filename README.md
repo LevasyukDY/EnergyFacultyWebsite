@@ -18,6 +18,43 @@
 Исходный код backend вы можете найти [в репозитории](https://github.com/TseplyaevAF/energy_faculty) моего партнёра.
 
 
+## Структура проекта
+
+```py
+├── babel.config.json
+├── package-lock.json
+├── package.json                # конфиг всех необходимых пакетов для проекта
+├── public
+│  ├── favicon.ico                  # иконка сайта
+│  └── index.html
+├── README.md
+└── src
+  ├── App.vue                   # main компонент всего приложения
+  ├── assets                    # каталог с медиа файлами
+  │  ├── images                     # вспомогательные картинки
+  │  │  ├── позитрон.png
+  │  │  └── ...
+  │  └── logo.png                   # логотип сайта
+  ├── components                # каталог с компонентами
+  │  ├── NewsPreview.vue            # предпросмотр новостей на главной странице
+  │  ├── ParallaxCarousel.vue       # реализация слайдера с новостями на главной странице
+  │  ├── sidebar                # каталог компонентов бокового меню
+  │  │  ├── SidebarLink.vue         # логика перенаправления при нажатии
+  │  │  ├── SidebarMenu.vue         # кнопки меню
+  │  │  └── state.js                # константы для гибкой настройки бокового меню
+  │  └── StudentDeanery.vue
+  ├── main.js                   # создание экземпляра App
+  ├── router                    # каталог с файлами для перехода между страницами
+  │  └── index.js                   # конфигурация роутинга
+  └── views                     # каталог отображения страниц
+    ├── AbiturientsPage.vue         # страница для абитуриентов
+    ├── ContactsPage.vue            # страница с контактами
+    ├── FacultyPage.vue             # страница с информацией о факультете
+    ├── HomePage.vue                # главная страница
+    ├── NewsPage.vue                # страница с новостями
+    └── StudentsPage.vue            # страница для студентов
+```
+
 ## Установка проекта
 ```
 npm install
@@ -37,7 +74,8 @@ npm run build
 ```
 npm run lint
 ```
-***
+
+
 ## Зависимости проекта
 ```json
 "dependencies": {

@@ -1,17 +1,9 @@
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <h1>
-      <span v-if="collapsed">
-        <div>
-          <img alt="logo" src="../../assets/logo.png" height="38" />
-        </div>
-      </span>
-      <span v-else>
-        <div>
-          <img alt="logo" src="../../assets/logo.png" height="80" />
-        </div>
-      </span>
-    </h1>
+    <a href="/" class="sidebar__logo_content">
+      <img src="@/assets/logo.png" alt="logo" />
+      <span>ЭФ ЗабГУ</span>
+    </a>
 
     <SidebarLink to="/" icon="fas fa-home">Главная</SidebarLink>
 
@@ -79,10 +71,22 @@ export default {
   flex-direction: column;
 }
 
-.sidebar h1 {
-  height: 2.5em;
-  margin-block-start: 0;
-  margin-block-end: 0.4em;
+.sidebar__logo_content {
+  height: 3em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 5px;
+  overflow-x: hidden;
+}
+
+.sidebar img {
+  height: 38px;
+  margin-right: 9px;
 }
 
 .collapse-icon {
