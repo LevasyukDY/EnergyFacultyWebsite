@@ -1,3 +1,10 @@
+<template>
+  <SidebarMenu />
+  <div class="wrapper">
+    <router-view />
+  </div>
+</template>
+
 <script>
 import SidebarMenu from "@/components/sidebar/SidebarMenu";
 
@@ -8,14 +15,9 @@ export default {
 };
 </script>
 
-<template>
-  <SidebarMenu />
-  <router-view />
-</template>
-
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: sans-serif, Roboto, Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -24,5 +26,10 @@ export default {
 
 body {
   margin: 0%;
+}
+
+.wrapper {
+  margin-left: 54px;
+  padding: 15px;
 }
 </style>

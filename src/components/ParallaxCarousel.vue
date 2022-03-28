@@ -1,25 +1,14 @@
 <template>
-  <!-- <button
-    @click="
-      parallax *= -1;
-      $refs.myVueperSlides.refreshParallax();
-    "
-  >
-    reverse parallax effect
-  </button>
-  <button @click="parallaxFixedContent = !parallaxFixedContent">
-    Add a fix title
-  </button> -->
-
   <vueper-slides
+    autoplay
     ref="myVueperSlides"
     :parallax="parallax"
-    :parallax-fixed-content="parallaxFixedContent"
+    fixed-height="true"
   >
     <vueper-slide
       v-for="(slide, i) in slides"
       :key="i"
-      :image="slide.image"
+      :image="slide.preview"
       :title="parallaxFixedContent ? slide.title : ''"
       :content="parallaxFixedContent ? slide.content : ''"
     />
@@ -29,37 +18,39 @@
 <script>
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
+import axios from "axios";
 
 export default {
   components: { VueperSlides, VueperSlide },
   data: () => ({
     parallax: 1,
     parallaxFixedContent: true,
-    slides: [
-      {
-        title: "RuCode 2022",
-        content: "Запись до 25 марта",
-        image: require("@/assets/images/1.jpeg"),
-      },
-      {
-        title: "Студенты ЭФ ЗабГУ приняли участие в Наука++",
-        content: "Посмотри как всё происходило",
-        image: require("@/assets/images/3.jpeg"),
-      },
-      {
-        title: "Дистанционка отменяется",
-        content: "С 15 февраля переходим в очный формат обучения",
-        image: require("@/assets/images/2.jpeg"),
-      },
-      // Other slides.
-    ],
+    slides: [],
+    // slides: [
+    //   {
+    //     title: "Студенты ЭФ ЗабГУ приняли участие в Наука++",
+    //     content: "Посмотри как всё происходило",
+    //     image: require("@/assets/images/3.jpeg"),
+    //   },
+    //   {
+    //     title: "Дистанционка отменяется",
+    //     content: "С 15 февраля переходим в очный формат обучения",
+    //     image: require("@/assets/images/2.jpeg"),
+    //   },
+    //   // Other slides.
+    // ],
   }),
+  mounted() {
+    axios
+      .get("http://127.0.0.1:8000/api/news?is_slider_item=1")
+      .then((response) => (this.slides = response.data.data));
+  },
 };
 </script>
 
 <style>
-.vueperslides {
-  padding: 20px;
+.vueperslides--fixed-height {
+  height: 300px;
 }
 .vueperslides__parallax-wrapper {
   border-radius: 20px;
@@ -77,6 +68,11 @@ export default {
   color: #fff;
   background-color: #ff9845;
 }
+
+.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
+  height: 80%;
+}
+
 @media (max-width: 600px) {
   .vueperslide__title {
     font-size: 1em;
