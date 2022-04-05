@@ -27,19 +27,6 @@ export default {
     parallaxFixedContent: true,
     storageURL: "http://127.0.0.1:8000/storage/",
     slides: [],
-    // slides: [
-    //   {
-    //     title: "Студенты ЭФ ЗабГУ приняли участие в Наука++",
-    //     content: "Посмотри как всё происходило",
-    //     image: require("@/assets/images/3.jpeg"),
-    //   },
-    //   {
-    //     title: "Дистанционка отменяется",
-    //     content: "С 15 февраля переходим в очный формат обучения",
-    //     image: require("@/assets/images/2.jpeg"),
-    //   },
-    //   // Other slides.
-    // ],
   }),
   mounted() {
     axios
