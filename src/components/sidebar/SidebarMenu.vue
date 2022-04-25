@@ -1,11 +1,17 @@
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <a href="/" class="sidebar__logo_content">
+    <div
+      class="sidebar__logo_content"
+      @click="
+        $router.push('/');
+        $refs.myVueperSlides.refreshParallax();
+      "
+    >
       <img src="@/assets/logo.png" alt="logo" />
       <span>ЭФ ЗабГУ</span>
-    </a>
+    </div>
 
-    <SidebarLink to="/" icon="fas fa-home">Главная</SidebarLink>
+    <!-- <SidebarLink to="/" icon="fas fa-home">Главная</SidebarLink> -->
 
     <SidebarLink to="/faculty" icon="fas fa-landmark">Факультет</SidebarLink>
 
@@ -82,6 +88,7 @@ export default {
   text-decoration: none;
   margin-bottom: 5px;
   overflow-x: hidden;
+  cursor: pointer;
 }
 
 .sidebar img {

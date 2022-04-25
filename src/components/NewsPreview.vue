@@ -1,5 +1,5 @@
 <template>
-  <h1>Новости</h1>
+  <h1 @click="$router.push('/news')">Новости</h1>
   <div class="news">
     <div class="news__content">
       <img src="@/assets/images/2.jpeg" alt="news" />
@@ -42,9 +42,6 @@
       </p>
     </div>
   </div>
-  <div class="news__link">
-    <a href="#">Перейти к новостям...</a>
-  </div>
 </template>
 
 <script></script>
@@ -69,13 +66,9 @@
   object-fit: cover;
 }
 
-.news__link {
-  height: 22px;
-}
-
-.news__link a {
-  float: right;
-  color: #838383;
+h1:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
