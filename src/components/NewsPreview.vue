@@ -1,50 +1,33 @@
 <template>
   <h1 @click="$router.push('/news')">Новости</h1>
   <div class="news">
-    <div class="news__content">
-      <img src="@/assets/images/2.jpeg" alt="news" />
-      <strong>Заголовок</strong>
+    <div class="news__content" v-for="(post, i) in news" :key="i">
+      <img :srcset="storageURL + post.preview" alt="news" />
+      <strong>{{ post.title }}</strong>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-        nulla doloremque ea dolorem id asperiores laudantium culpa perferendis!
-        Sunt itaque accusamus delectus commodi. Molestias eaque consectetur
-        autem asperiores corrupti.
-      </p>
-    </div>
-    <div class="news__content">
-      <img src="@/assets/images/3.jpeg" alt="news" />
-      <strong>Заголовок</strong>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-        nulla doloremque ea dolorem id asperiores laudantium culpa perferendis!
-        Sunt itaque accusamus delectus commodi. Molestias eaque consectetur
-        autem asperiores corrupti.
-      </p>
-    </div>
-    <div class="news__content">
-      <img src="@/assets/images/1.jpeg" alt="news" />
-      <strong>Заголовок</strong>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-        nulla doloremque ea dolorem id asperiores laudantium culpa perferendis!
-        Sunt itaque accusamus delectus commodi. Molestias eaque consectetur
-        autem asperiores corrupti.
-      </p>
-    </div>
-    <div class="news__content">
-      <img src="@/assets/images/2.jpeg" alt="news" />
-      <strong>Заголовок</strong>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia nobis
-        nulla doloremque ea dolorem id asperiores laudantium culpa perferendis!
-        Sunt itaque accusamus delectus commodi. Molestias eaque consectetur
-        autem asperiores corrupti.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque labore
+        sint iure ab blanditiis voluptatum repellendus! Maxime, incidunt
+        debitis? Perspiciatis harum nesciunt maxime repellendus commodi
+        assumenda officiis non nisi quae.
       </p>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+import axios from "axios";
+export default {
+  data: () => ({
+    storageURL: "http://127.0.0.1:8000/storage/",
+    news: [],
+  }),
+  mounted() {
+    axios
+      .get("http://127.0.0.1:8000/api/news?is_slider_item=1")
+      .then((response) => (this.news = response.data));
+  },
+};
+</script>
 
 <style scoped>
 .news {
