@@ -1,10 +1,5 @@
 <template>
-  <vueper-slides
-    autoplay
-    ref="myVueperSlides"
-    :parallax="parallax"
-    fixed-height="true"
-  >
+  <vueper-slides ref="myVueperSlides" :parallax="parallax" fixed-height="true">
     <vueper-slide
       v-for="(slide, i) in slides"
       :key="i"

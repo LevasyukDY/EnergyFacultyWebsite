@@ -1,12 +1,6 @@
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <div
-      class="sidebar__logo_content"
-      @click="
-        $router.push('/');
-        $refs.myVueperSlides.refreshParallax();
-      "
-    >
+    <div class="sidebar__logo_content" @click="$router.push('/')">
       <img src="@/assets/logo.png" alt="logo" />
       <span>ЭФ ЗабГУ</span>
     </div>
