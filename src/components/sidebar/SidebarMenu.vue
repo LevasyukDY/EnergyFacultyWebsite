@@ -7,9 +7,11 @@
 
     <!-- <SidebarLink to="/" icon="fas fa-home">Главная</SidebarLink> -->
 
-    <SidebarLink to="/faculty" icon="fas fa-landmark">Факультет</SidebarLink>
+    <SidebarLink to="/profile" icon="fas fa-user">Профиль</SidebarLink>
 
     <SidebarLink to="/news" icon="fas fa-newspaper">Новости</SidebarLink>
+
+    <SidebarLink to="/faculty" icon="fas fa-landmark">Факультет</SidebarLink>
 
     <SidebarLink to="/students" icon="fas fa-graduation-cap">
       Студентам
