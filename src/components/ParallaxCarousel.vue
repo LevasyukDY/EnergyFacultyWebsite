@@ -45,11 +45,11 @@ export default {
 .vueperslide__title {
   font-size: 1.5em;
   color: #fff;
-  background-color: #ff9845;
+  text-shadow: black 1px 1px 5px;
 }
 .vueperslide__content {
   color: #fff;
-  background-color: #ff9845;
+  text-shadow: black 1px 1px 5px;
 }
 
 .vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
