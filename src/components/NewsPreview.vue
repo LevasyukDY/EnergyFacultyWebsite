@@ -47,6 +47,7 @@ export default {
   max-height: 100%;
   border-radius: 10px;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 
 h1:hover {
