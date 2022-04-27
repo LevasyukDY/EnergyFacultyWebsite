@@ -55,7 +55,7 @@ h1:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .news {
     flex-direction: column;
   }
