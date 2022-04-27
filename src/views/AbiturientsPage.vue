@@ -4,8 +4,7 @@
     <h1>Приёмная кампания 2022</h1>
     <p>
       Приём документов в приёмную комиссию с 20 июня 2022 года будет полностью
-      дистанционным. <br />
-      Сервис
+      дистанционным. Сервис
       <a href="http://zabgu.ru/php/page.php?query=podat%27_zayavlenie">
         «Личный кабинет поступающего»
       </a>
@@ -44,6 +43,7 @@
 <style scoped>
 img {
   box-shadow: #909090 3px 3px 25px;
+  border-radius: 15px;
 }
 
 .abiturients p {
@@ -60,5 +60,13 @@ img {
 a {
   margin-right: 20px;
   margin-bottom: 10px;
+}
+
+@media (max-width: 1140px) {
+  img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 100%;
+  }
 }
 </style>
