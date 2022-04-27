@@ -1,7 +1,7 @@
 <template>
   <div class="filters">
     <div class="search">
-      <input type="text" placeholder="Поиск..." size="33" />
+      <input type="text" placeholder="Поиск..." />
       <i class="fas fa-magnifying-glass" />
     </div>
     <div class="categories">
@@ -66,6 +66,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-flow: row wrap;
 }
 
 .category {
@@ -73,6 +74,7 @@ export default {
 }
 
 input {
+  width: 30ch;
   border: 2px solid #395fb6;
   border-radius: 15px;
   font-size: 16px;
@@ -147,10 +149,17 @@ svg:hover {
 
 @media (max-width: 765px) {
   .categories {
-    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
   }
   .category {
     margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 420px) {
+  input {
+    width: 24ch;
   }
 }
 </style>
