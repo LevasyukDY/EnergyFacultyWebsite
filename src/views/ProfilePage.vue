@@ -1,6 +1,6 @@
 <template>
   <div class="profile">
-    <h1>This is an profile page</h1>
+    <h1>Пожалуйста, подождите...</h1>
   </div>
 </template>
 
