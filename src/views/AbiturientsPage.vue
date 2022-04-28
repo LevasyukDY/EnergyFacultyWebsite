@@ -50,18 +50,6 @@ img {
   text-align: justify;
 }
 
-/* .links {
-  display: flex;
-  flex-grow: 1;
-  flex-flow: row wrap;
-  justify-content: center;
-} */
-
-/* a {
-  margin-right: 20px;
-  margin-bottom: 10px;
-} */
-
 @media (max-width: 1140px) {
   img {
     object-fit: cover;

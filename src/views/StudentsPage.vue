@@ -27,12 +27,10 @@
 }
 
 button {
-  /* background-color: #395fb6; */
   background-color: #fff;
   box-shadow: #c1c1c1 1px 1px 10px;
   border: 1px solid #6c84be;
   color: #000;
-  /* text-shadow: #000 1px 1px 2px; */
   font-size: 16px;
   width: 300px;
   height: 100px;
@@ -45,7 +43,6 @@ button:hover {
   transition: 0.2s;
   background-color: #3862a1;
   cursor: pointer;
-  /* margin-top: 10px; */
   width: 350px;
   height: 150px;
   font-size: 18px;
