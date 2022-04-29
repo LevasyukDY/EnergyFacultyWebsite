@@ -50,6 +50,15 @@ img {
   text-align: justify;
 }
 
+a {
+  color: #3862a1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1140px) {
   img {
     object-fit: cover;
