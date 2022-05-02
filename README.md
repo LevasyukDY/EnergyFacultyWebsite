@@ -21,8 +21,6 @@
 ## Структура проекта
 
 ```
-├── babel.config.json
-├── package-lock.json
 ├── package.json                – конфиг всех необходимых пакетов для проекта
 ├── public
 │  ├── favicon.ico                  – иконка сайта
@@ -52,6 +50,7 @@
     ├── FacultyPage.vue             – страница с информацией о факультете
     ├── HomePage.vue                – главная страница
     ├── NewsPage.vue                – страница с новостями
+    ├── ProfilePage.vue             - редирект на вход в личные кабинеты
     └── StudentsPage.vue            – страница для студентов
 ```
 
@@ -80,7 +79,9 @@
     "eslint": "^8.10.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.5.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0"
 }
 ```
 
