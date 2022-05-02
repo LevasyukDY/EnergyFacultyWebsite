@@ -20,7 +20,7 @@
       <img :srcset="storageURL + post.preview" alt="news" />
       <strong>{{ post.title }}</strong>
       <p>
-        {{ post.content }}
+        {{ post.content.replace(/<[^>]*>/g, " ").replace(/&[^;]*;/g, " ") }}
       </p>
     </div>
   </div>
