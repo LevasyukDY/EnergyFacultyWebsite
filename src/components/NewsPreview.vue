@@ -45,6 +45,11 @@ export default {
   width: 24%;
 }
 
+.news__content p {
+  height: 130px;
+  overflow: hidden;
+}
+
 .news__content img {
   width: 100%;
   height: 300px;

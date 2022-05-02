@@ -15,7 +15,7 @@
       </div>
     </div>
   </div>
-  <div class="news">
+  <div class="news" v-for="j in 4" :key="j">
     <div class="news__content" v-for="(post, i) in news" :key="i">
       <img :srcset="storageURL + post.preview" alt="news" />
       <strong>{{ post.title }}</strong>
@@ -138,6 +138,11 @@ svg:hover {
   border-radius: 10px;
   object-fit: cover;
   margin-bottom: 10px;
+}
+
+.news__content p {
+  height: 130px;
+  overflow: hidden;
 }
 
 @media (max-width: 800px) {
