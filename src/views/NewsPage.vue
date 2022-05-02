@@ -1,7 +1,12 @@
 <template>
   <div class="filters">
     <div class="search">
-      <input type="text" placeholder="Поиск..." />
+      <input
+        :value="search"
+        @input="search = $event.target.value"
+        type="text"
+        placeholder="Поиск..."
+      />
       <i class="fas fa-magnifying-glass" />
     </div>
     <div class="categories">
@@ -10,15 +15,12 @@
       </div>
     </div>
   </div>
-  <div class="news" v-for="j in 5" :key="j">
+  <div class="news">
     <div class="news__content" v-for="(post, i) in news" :key="i">
       <img :srcset="storageURL + post.preview" alt="news" />
       <strong>{{ post.title }}</strong>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque labore
-        sint iure ab blanditiis voluptatum repellendus! Maxime, incidunt
-        debitis? Perspiciatis harum nesciunt maxime repellendus commodi
-        assumenda officiis non nisi quae.
+        {{ post.content }}
       </p>
     </div>
   </div>
@@ -30,19 +32,28 @@ export default {
   data: () => ({
     storageURL: "http://127.0.0.1:8000/storage/",
     news: [],
+    search: "",
     categories: [
       "Все",
-      "Учёба",
       "Наука",
       "Спорт",
       "События",
+      "Объявления",
       "Внеучебная деятельность",
     ],
   }),
-  mounted() {
+  created() {
     axios
-      .get("http://127.0.0.1:8000/api/news?is_slider_item=1")
+      .get("http://127.0.0.1:8000/api/news")
       .then((response) => (this.news = response.data));
+  },
+  watch: {
+    search() {
+      console.log(this.search);
+      axios
+        .get("http://127.0.0.1:8000/api/news?content=" + this.search)
+        .then((response) => (this.news = response.data));
+    },
   },
 };
 </script>
@@ -138,7 +149,7 @@ svg:hover {
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1085px) {
   .filters {
     flex-direction: column;
   }

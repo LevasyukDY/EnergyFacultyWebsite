@@ -5,10 +5,7 @@
       <img :srcset="storageURL + post.preview" alt="news" />
       <strong>{{ post.title }}</strong>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque labore
-        sint iure ab blanditiis voluptatum repellendus! Maxime, incidunt
-        debitis? Perspiciatis harum nesciunt maxime repellendus commodi
-        assumenda officiis non nisi quae.
+        {{ normalizePostContent(i) }}
       </p>
     </div>
   </div>
@@ -21,10 +18,15 @@ export default {
     storageURL: "http://127.0.0.1:8000/storage/",
     news: [],
   }),
-  mounted() {
+  created() {
     axios
-      .get("http://127.0.0.1:8000/api/news?is_slider_item=1")
+      .get("http://127.0.0.1:8000/api/news")
       .then((response) => (this.news = response.data));
+  },
+  methods: {
+    normalizePostContent(id) {
+      return this.news[id].content.replace(/<[^>]*>/g, "");
+    },
   },
 };
 </script>
