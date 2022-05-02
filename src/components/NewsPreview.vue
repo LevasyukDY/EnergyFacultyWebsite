@@ -25,7 +25,9 @@ export default {
   },
   methods: {
     normalizePostContent(id) {
-      return this.news[id].content.replace(/<[^>]*>/g, "");
+      return this.news[id].content
+        .replace(/<[^>]*>/g, "")
+        .replace(/&[^;]*;/g, " ");
     },
   },
 };
