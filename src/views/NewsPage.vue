@@ -15,8 +15,12 @@
       </div>
     </div>
   </div>
-  <div class="news" v-for="j in 4" :key="j">
-    <div class="news__content" v-for="(post, i) in news" :key="i">
+  <div class="news" v-for="i in Math.ceil(news.length / 4)" :key="i">
+    <div
+      class="news__content"
+      v-for="(post, j) in news.slice((i - 1) * 4, (i - 1) * 4 + 4)"
+      :key="j"
+    >
       <img :srcset="storageURL + post.preview" alt="news" />
       <strong>{{ post.title }}</strong>
       <p>
@@ -123,12 +127,13 @@ svg:hover {
 .news {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .news__content {
   height: 100%;
   width: 24%;
+  margin: 0 5px;
 }
 
 .news__content img {
