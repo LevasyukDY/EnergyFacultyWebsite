@@ -62,6 +62,58 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+.news__content {
+  height: 100%;
+  width: 24%;
+  margin: 0 5px;
+
+  img {
+    width: 100%;
+    height: 300px;
+    max-height: 100%;
+
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  p {
+    height: 130px;
+    overflow: hidden;
+  }
+}
+
+button {
+  background-color: #395fb6;
+  opacity: 80%;
+  transition: 0.3s;
+
+  border: none;
+  color: white;
+  text-shadow: #515151 1px 1px 2px;
+  padding: 5px 15px;
+
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+  border-radius: 15px;
+
+  &:hover {
+    opacity: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+}
+svg {
+  margin: 5px 15px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+</style>
+
 <style scoped>
 .filters {
   margin-bottom: 10px;
@@ -96,58 +148,10 @@ input {
   padding: 2px 10px;
 }
 
-button {
-  background-color: #395fb6;
-  opacity: 80%;
-  transition: 0.3s;
-  border: none;
-  color: white;
-  text-shadow: #515151 1px 1px 2px;
-  padding: 5px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 15px;
-}
-
-button:hover {
-  opacity: 100%;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-svg {
-  margin: 5px 15px;
-}
-
-svg:hover {
-  cursor: pointer;
-}
-
 .news {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-}
-
-.news__content {
-  height: 100%;
-  width: 24%;
-  margin: 0 5px;
-}
-
-.news__content img {
-  width: 100%;
-  height: 300px;
-  max-height: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-.news__content p {
-  height: 130px;
-  overflow: hidden;
 }
 
 @media (max-width: 800px) {
