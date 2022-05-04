@@ -10,8 +10,18 @@
       <i class="fas fa-magnifying-glass" />
     </div>
     <div class="categories">
+      <div class="category">
+        <button :class="{ active: isActive[0] }" @click="selectTag(0)">
+          Все
+        </button>
+      </div>
       <div class="category" v-for="(cat, i) in categories" :key="i">
-        <button>{{ cat }}</button>
+        <button
+          :class="{ active: isActive[cat.id] }"
+          @click="selectTag(cat.id)"
+        >
+          {{ cat.title }}
+        </button>
       </div>
     </div>
   </div>
@@ -37,26 +47,42 @@ export default {
     storageURL: "http://127.0.0.1:8000/storage/",
     news: [],
     search: "",
-    categories: [
-      "Все",
-      "Наука",
-      "Спорт",
-      "События",
-      "Объявления",
-      "Внеучебная деятельность",
-    ],
+    categories: [],
+    isActive: {
+      0: true,
+    },
   }),
   created() {
     axios
       .get("http://127.0.0.1:8000/api/news")
       .then((response) => (this.news = response.data.reverse()));
+    axios
+      .get("http://127.0.0.1:8000/api/tags")
+      .then((response) => (this.categories = response.data));
   },
   watch: {
     search() {
-      console.log(this.search);
       axios
         .get("http://127.0.0.1:8000/api/news?content=" + this.search)
         .then((response) => (this.news = response.data));
+    },
+  },
+  methods: {
+    selectTag(id) {
+      this.isActive = {};
+      this.isActive[id] = !this.isActive[id];
+      this.showTaggedNews(id);
+    },
+    showTaggedNews(id) {
+      if (id > 0) {
+        axios
+          .get("http://127.0.0.1:8000/api/news?tag_id=" + id)
+          .then((response) => (this.news = response.data.reverse()));
+      } else {
+        axios
+          .get("http://127.0.0.1:8000/api/news")
+          .then((response) => (this.news = response.data.reverse()));
+      }
     },
   },
 };
@@ -105,6 +131,10 @@ button {
     transition: 0.3s;
     cursor: pointer;
   }
+
+  &.active {
+    opacity: 100%;
+  }
 }
 svg {
   margin: 5px 15px;
@@ -137,7 +167,7 @@ svg {
 }
 
 .category {
-  margin-left: 15px;
+  margin: 0px 7px;
 }
 
 input {
