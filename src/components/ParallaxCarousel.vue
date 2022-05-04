@@ -6,6 +6,7 @@
       :image="storageURL + slide.preview"
       :title="parallaxFixedContent ? slide.title : ''"
       :content="parallaxFixedContent ? slide.content : ''"
+      @click="$router.push('/news/' + slide.id)"
     />
   </vueper-slides>
 </template>
@@ -42,6 +43,7 @@ export default {
 .vueperslide__content-wrapper {
   padding-left: 100px;
   padding-right: 100px;
+  cursor: pointer;
 }
 .vueperslide__title {
   font-size: 1.5em;
