@@ -1,7 +1,7 @@
 <template>
   <h1 @click="$router.push('/news')">Новости</h1>
   <div class="news">
-    <div class="news__content" v-for="(post, i) in news" :key="i">
+    <div class="news__content" v-for="(post, i) in news.slice(0, 4)" :key="i">
       <img :srcset="storageURL + post.preview" alt="news" />
       <strong>{{ post.title }}</strong>
       <p>
@@ -21,7 +21,7 @@ export default {
   created() {
     axios
       .get("http://127.0.0.1:8000/api/news")
-      .then((response) => (this.news = response.data));
+      .then((response) => (this.news = response.data.reverse()));
   },
   methods: {
     normalizePostContent(id) {
