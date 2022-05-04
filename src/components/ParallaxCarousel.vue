@@ -26,7 +26,7 @@ export default {
   mounted() {
     axios
       .get("http://127.0.0.1:8000/api/news?is_slider_item=1")
-      .then((response) => (this.slides = response.data));
+      .then((response) => (this.slides = response.data.reverse()));
   },
 };
 </script>
