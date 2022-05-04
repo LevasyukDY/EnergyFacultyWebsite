@@ -21,11 +21,12 @@ export default {
     parallax: 1,
     parallaxFixedContent: true,
     storageURL: "http://127.0.0.1:8000/storage/",
+    newsURL: "http://127.0.0.1:8000/api/news",
     slides: [],
   }),
   mounted() {
     axios
-      .get("http://127.0.0.1:8000/api/news?is_slider_item=1")
+      .get(this.newsURL + "?is_slider_item=1")
       .then((response) => (this.slides = response.data.reverse()));
   },
 };

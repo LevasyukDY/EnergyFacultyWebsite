@@ -16,11 +16,12 @@ import axios from "axios";
 export default {
   data: () => ({
     storageURL: "http://127.0.0.1:8000/storage/",
+    newsURL: "http://127.0.0.1:8000/api/news",
     news: [],
   }),
   created() {
     axios
-      .get("http://127.0.0.1:8000/api/news")
+      .get(this.newsURL)
       .then((response) => (this.news = response.data.reverse()));
   },
   methods: {

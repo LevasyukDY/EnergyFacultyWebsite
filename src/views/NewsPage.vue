@@ -45,6 +45,8 @@ import axios from "axios";
 export default {
   data: () => ({
     storageURL: "http://127.0.0.1:8000/storage/",
+    newsURL: "http://127.0.0.1:8000/api/news",
+    tagsURL: "http://127.0.0.1:8000/api/tags",
     news: [],
     search: "",
     categories: [],
@@ -54,16 +56,16 @@ export default {
   }),
   created() {
     axios
-      .get("http://127.0.0.1:8000/api/news")
+      .get(this.newsURL)
       .then((response) => (this.news = response.data.reverse()));
     axios
-      .get("http://127.0.0.1:8000/api/tags")
+      .get(this.tagsURL)
       .then((response) => (this.categories = response.data));
   },
   watch: {
     search() {
       axios
-        .get("http://127.0.0.1:8000/api/news?content=" + this.search)
+        .get(this.newsURL + "?content=" + this.search)
         .then((response) => (this.news = response.data));
     },
   },
@@ -76,11 +78,11 @@ export default {
     showTaggedNews(id) {
       if (id > 0) {
         axios
-          .get("http://127.0.0.1:8000/api/news?tag_id=" + id)
+          .get(this.newsURL + "?tag_id=" + id)
           .then((response) => (this.news = response.data.reverse()));
       } else {
         axios
-          .get("http://127.0.0.1:8000/api/news")
+          .get(this.newsURL)
           .then((response) => (this.news = response.data.reverse()));
       }
     },
