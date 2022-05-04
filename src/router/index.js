@@ -36,6 +36,11 @@ const routes = [
     name: "Contacts",
     component: () => import("../views/ContactsPage.vue"),
   },
+  {
+    path: "/news/:id",
+    name: "Post",
+    component: () => import("../views/PostPage.vue"),
+  },
 ];
 
 const router = createRouter({

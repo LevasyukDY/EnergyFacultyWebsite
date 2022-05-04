@@ -31,8 +31,14 @@
       v-for="(post, j) in news.slice((i - 1) * 4, (i - 1) * 4 + 4)"
       :key="j"
     >
-      <img :srcset="storageURL + post.preview" alt="news" />
-      <strong>{{ post.title }}</strong>
+      <img
+        :srcset="storageURL + post.preview"
+        alt="news"
+        @click="$router.push('/news/' + post.id)"
+      />
+      <strong @click="$router.push('/news/' + post.id)">
+        {{ post.title }}
+      </strong>
       <p>
         {{ post.content.replace(/<[^>]*>/g, " ").replace(/&[^;]*;/g, " ") }}
       </p>
@@ -104,6 +110,15 @@ export default {
     border-radius: 10px;
     object-fit: cover;
     margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  strong:hover {
+    cursor: pointer;
+    text-decoration: underline;
   }
 
   p {

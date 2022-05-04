@@ -2,8 +2,14 @@
   <h1 @click="$router.push('/news')">Новости</h1>
   <div class="news">
     <div class="news__content" v-for="(post, i) in news.slice(0, 4)" :key="i">
-      <img :srcset="storageURL + post.preview" alt="news" />
-      <strong>{{ post.title }}</strong>
+      <img
+        :srcset="storageURL + post.preview"
+        alt="news"
+        @click="$router.push('/news/' + post.id)"
+      />
+      <strong @click="$router.push('/news/' + post.id)">
+        {{ post.title }}
+      </strong>
       <p>
         {{ normalizePostContent(i) }}
       </p>
@@ -58,6 +64,12 @@ export default {
   border-radius: 10px;
   object-fit: cover;
   margin-bottom: 10px;
+}
+
+img:hover,
+strong:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 h1:hover {
