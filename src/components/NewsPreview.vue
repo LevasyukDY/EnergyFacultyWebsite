@@ -22,19 +22,20 @@ import axios from "axios";
 export default {
   data: () => ({
     storageURL: "http://127.0.0.1:8000/storage/",
-    newsURL: "http://127.0.0.1:8000/api/news",
+    newsURL: "http://127.0.0.1:8000/api/news?per_page=4&page=1",
     news: [],
   }),
   created() {
     axios
       .get(this.newsURL)
-      .then((response) => (this.news = response.data.reverse()));
+      .then((response) => (this.news = response.data["data"].reverse()));
   },
   methods: {
     normalizePostContent(id) {
       return this.news[id].content
         .replace(/<[^>]*>/g, " ")
-        .replace(/&[^;]*;/g, " ");
+        .replace(/&[^;]*;/g, " ")
+        .replace(/ +/g, " ");
     },
   },
 };

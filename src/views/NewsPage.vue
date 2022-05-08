@@ -7,7 +7,7 @@
         type="text"
         placeholder="Поиск..."
       />
-      <i class="fas fa-magnifying-glass" />
+      <!-- <i class="fas fa-magnifying-glass" /> -->
     </div>
     <div class="categories">
       <div class="category">
@@ -44,6 +44,9 @@
       </p>
     </div>
   </div>
+  <div class="not_found" v-if="news.length == 0">
+    <h1>Новостей нет</h1>
+  </div>
 </template>
 
 <script>
@@ -51,7 +54,7 @@ import axios from "axios";
 export default {
   data: () => ({
     storageURL: "http://127.0.0.1:8000/storage/",
-    newsURL: "http://127.0.0.1:8000/api/news",
+    newsURL: "http://127.0.0.1:8000/api/news?per_page=4&page=1",
     tagsURL: "http://127.0.0.1:8000/api/tags",
     news: [],
     search: "",
@@ -63,7 +66,7 @@ export default {
   created() {
     axios
       .get(this.newsURL)
-      .then((response) => (this.news = response.data.reverse()));
+      .then((response) => (this.news = response.data["data"].reverse()));
     axios
       .get(this.tagsURL)
       .then((response) => (this.categories = response.data));
@@ -71,8 +74,8 @@ export default {
   watch: {
     search() {
       axios
-        .get(this.newsURL + "?content=" + this.search)
-        .then((response) => (this.news = response.data));
+        .get(this.newsURL + "&content=" + this.search)
+        .then((response) => (this.news = response.data["data"]));
     },
   },
   methods: {
@@ -84,12 +87,12 @@ export default {
     showTaggedNews(id) {
       if (id > 0) {
         axios
-          .get(this.newsURL + "?tag_id=" + id)
-          .then((response) => (this.news = response.data.reverse()));
+          .get(this.newsURL + "&tag_id=" + id)
+          .then((response) => (this.news = response.data["data"].reverse()));
       } else {
         axios
           .get(this.newsURL)
-          .then((response) => (this.news = response.data.reverse()));
+          .then((response) => (this.news = response.data["data"].reverse()));
       }
     },
   },

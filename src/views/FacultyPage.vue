@@ -1,6 +1,7 @@
 <template>
   <div class="faculty">
     <img src="@/assets/images/факультет.png" />
+    <h1>О факультете</h1>
     <div class="faculty__text">
       <p>
         Энергетический факультет является основным центром подготовки кадров для
