@@ -7,7 +7,6 @@
         type="text"
         placeholder="Поиск..."
       />
-      <!-- <i class="fas fa-magnifying-glass" /> -->
     </div>
     <div class="categories">
       <div class="category">
@@ -44,8 +43,15 @@
       </p>
     </div>
   </div>
-  <div class="not_found" v-if="news.length == 0">
+  <div class="not_found" v-if="news.length == 0 && search == ''">
     <h1>Новостей нет</h1>
+  </div>
+  <div class="not_found" v-else-if="news.length == 0">
+    <h1>Ничего не найдено</h1>
+    <div class="not_found__maybe">
+      <h3>Возможно, вы имели в виду:</h3>
+      <a href="#">{{ changeSearchLang() }}</a>
+    </div>
   </div>
 </template>
 
@@ -62,6 +68,35 @@ export default {
     isActive: {
       0: true,
     },
+    alphabet: {
+      a: "ф",
+      b: "и",
+      c: "с",
+      d: "в",
+      e: "у",
+      f: "а",
+      g: "п",
+      h: "р",
+      i: "ш",
+      j: "о",
+      k: "л",
+      l: "д",
+      m: "ь",
+      n: "т",
+      o: "щ",
+      p: "з",
+      q: "й",
+      r: "к",
+      s: "ы",
+      t: "е",
+      u: "г",
+      v: "м",
+      w: "ц",
+      x: "ч",
+      y: "н",
+      z: "я",
+    },
+    alphabet_symbols: ["[", "]", ";", "'", "\\", ",", "."],
   }),
   created() {
     axios
@@ -79,6 +114,59 @@ export default {
     },
   },
   methods: {
+    changeSearchLang() {
+      let search_copy = this.search.toLowerCase();
+      let reversed_alphabet = {};
+      let reversed_alphabet_symbols = {};
+      Object.entries(this.alphabet).forEach(([key, value]) => {
+        reversed_alphabet[value] = key;
+      });
+      Object.entries(this.alphabet_symbols).forEach(([key, value]) => {
+        reversed_alphabet_symbols[value] = key;
+      });
+      let result = "";
+      let new_char = "";
+      for (let i = 0; i < Object.keys(search_copy).length; i++) {
+        if (search_copy[i] in this.alphabet) {
+          new_char = this.alphabet[search_copy[i]];
+          let re = new RegExp(search_copy[i], "gim");
+          result += search_copy[i].replace(re, new_char);
+        } else if (search_copy[i] in reversed_alphabet) {
+          new_char = reversed_alphabet[search_copy[i]];
+          let re = new RegExp(search_copy[i], "gim");
+          result += search_copy[i].replace(re, new_char);
+        } else if (this.alphabet_symbols.includes(search_copy[i])) {
+          search_copy[i] == "[" || search_copy[i] == "{"
+            ? (new_char = "х")
+            : "";
+          search_copy[i] == "]" || search_copy[i] == "}"
+            ? (new_char = "ъ")
+            : "";
+          search_copy[i] == ";" || search_copy[i] == ":"
+            ? (new_char = "ж")
+            : "";
+          search_copy[i] == "'" || search_copy[i] == '"'
+            ? (new_char = "э")
+            : "";
+          search_copy[i] == "\\" ||
+          search_copy[i] == "|" ||
+          search_copy[i] == "`" ||
+          search_copy[i] == "~"
+            ? (new_char = "ё")
+            : "";
+          search_copy[i] == "," || search_copy[i] == "<"
+            ? (new_char = "б")
+            : "";
+          search_copy[i] == "." || search_copy[i] == ">"
+            ? (new_char = "ю")
+            : "";
+          result += new_char;
+        } else {
+          result += search_copy[i];
+        }
+      }
+      return result;
+    },
     selectTag(id) {
       this.isActive = {};
       this.isActive[id] = !this.isActive[id];
@@ -100,6 +188,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.not_found__maybe {
+  display: flex;
+  align-items: center;
+  a {
+    padding-left: 5px;
+  }
+}
+
 .news__content {
   height: 100%;
   width: 24%;
