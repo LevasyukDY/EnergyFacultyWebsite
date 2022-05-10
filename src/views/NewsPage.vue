@@ -50,7 +50,9 @@
     <h1>Ничего не найдено</h1>
     <div class="not_found__maybe">
       <h3>Возможно, вы имели в виду:</h3>
-      <a href="#">{{ changeSearchLang() }}</a>
+      <h3 class="not_found__link" @click="changeSearchText">
+        {{ changeSearchLang() }}
+      </h3>
     </div>
   </div>
 </template>
@@ -163,6 +165,9 @@ export default {
       }
       return result;
     },
+    changeSearchText() {
+      this.search = this.changeSearchLang();
+    },
     selectTag(id) {
       this.isActive = {};
       this.isActive[id] = !this.isActive[id];
@@ -187,8 +192,13 @@ export default {
 .not_found__maybe {
   display: flex;
   align-items: center;
-  a {
+  .not_found__link {
     padding-left: 5px;
+    color: #395fb6;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 }
 
