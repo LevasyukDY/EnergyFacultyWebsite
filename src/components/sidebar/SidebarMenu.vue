@@ -5,8 +5,6 @@
       <span>ЭФ ЗабГУ</span>
     </div>
 
-    <!-- <SidebarLink to="/" icon="fas fa-home">Главная</SidebarLink> -->
-
     <SidebarLink to="/profile" icon="fas fa-user">Профиль</SidebarLink>
 
     <SidebarLink to="/news" icon="fas fa-newspaper">Новости</SidebarLink>

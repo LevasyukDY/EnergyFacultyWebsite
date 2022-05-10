@@ -117,12 +117,8 @@ export default {
     changeSearchLang() {
       let search_copy = this.search.toLowerCase();
       let reversed_alphabet = {};
-      let reversed_alphabet_symbols = {};
       Object.entries(this.alphabet).forEach(([key, value]) => {
         reversed_alphabet[value] = key;
-      });
-      Object.entries(this.alphabet_symbols).forEach(([key, value]) => {
-        reversed_alphabet_symbols[value] = key;
       });
       let result = "";
       let new_char = "";
