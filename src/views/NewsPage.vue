@@ -55,6 +55,7 @@
       </h3>
     </div>
   </div>
+  <!-- <div ref="observer" class="observer"></div> -->
 </template>
 
 <script>
@@ -62,8 +63,9 @@ import axios from "axios";
 export default {
   data: () => ({
     storageURL: "http://127.0.0.1:8000/storage/",
-    newsURL: "http://127.0.0.1:8000/api/news?per_page=4&page=1",
+    newsURL: "http://127.0.0.1:8000/api/news?per_page=20&page=1",
     tagsURL: "http://127.0.0.1:8000/api/tags",
+    // page: 1,
     news: [],
     search: "",
     categories: [],
@@ -120,7 +122,7 @@ export default {
   created() {
     axios
       .get(this.newsURL)
-      .then((response) => (this.news = response.data["data"].reverse()));
+      .then((response) => (this.news = response.data["data"]));
     axios
       .get(this.tagsURL)
       .then((response) => (this.categories = response.data));
@@ -132,7 +134,32 @@ export default {
         .then((response) => (this.news = response.data["data"]));
     },
   },
+  // mounted() {
+  //   const options = {
+  //     rootMargin: "0px",
+  //     threshold: 1.0,
+  //   };
+  //   const callback = (entries) => {
+  //     if (entries[0].isIntersecting) {
+  //       this.loadMorePosts();
+  //       console.log("ПЕРЕСЕЧЁН");
+  //     }
+  //   };
+  //   const observer = new IntersectionObserver(callback, options);
+  //   observer.observe(this.$refs.observer);
+  // },
   methods: {
+    // loadMorePosts() {
+    //   this.page += 1;
+    //   axios
+    //     .get(
+    //       "http://127.0.0.1:8000/api/news?per_page=8&page=" +
+    //         this.page.toString()
+    //     )
+    //     .then(
+    //       (response) => (this.news = [...this.news, ...response.data["data"]])
+    //     );
+    // },
     changeSearchLang() {
       let search_copy = this.search.toLowerCase();
       let reversed_alphabet = {};
@@ -194,11 +221,11 @@ export default {
       if (id > 0) {
         axios
           .get(this.newsURL + "&tag_id=" + id)
-          .then((response) => (this.news = response.data["data"].reverse()));
+          .then((response) => (this.news = response.data["data"]));
       } else {
         axios
           .get(this.newsURL)
-          .then((response) => (this.news = response.data["data"].reverse()));
+          .then((response) => (this.news = response.data["data"]));
       }
     },
   },
@@ -206,6 +233,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// .observer {
+//   background-color: #39b665;
+//   height: 30px;
+// }
+
 .not_found__maybe {
   display: flex;
   align-items: center;

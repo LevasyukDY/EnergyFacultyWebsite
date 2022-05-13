@@ -36,11 +36,25 @@
         Приём иностранных граждан
       </a>
       <a href="http://entrant.zabgu.ru/?page_id=12">Правила приёма</a>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!4v1652413168592!6m8!1m7!1sqDQsScBY59HwuxIbt3p6fw!2m2!1d52.03460821883336!2d113.530352313913!3f271.4873!4f0!5f0.7820865974627469"
+        allowfullscreen="true"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
   </div>
 </template>
 
 <style scoped>
+iframe {
+  border: 0;
+  width: 100%;
+  height: 90vh;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
 img {
   box-shadow: #909090 3px 3px 25px;
   border-radius: 15px;

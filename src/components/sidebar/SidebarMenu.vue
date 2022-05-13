@@ -2,7 +2,7 @@
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <div class="sidebar__logo_content" @click="$router.push('/')">
       <img src="@/assets/logo.png" alt="logo" />
-      <span>ЭФ ЗабГУ</span>
+      <span>Энергетический факультет ЗабГУ</span>
     </div>
 
     <SidebarLink to="/profile" icon="fas fa-user">Профиль</SidebarLink>
@@ -72,7 +72,7 @@ export default {
 }
 
 .sidebar__logo_content {
-  height: 3em;
+  height: 4em;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -88,6 +88,10 @@ export default {
 .sidebar img {
   height: 38px;
   margin-right: 9px;
+}
+
+.sidebar span {
+  text-align: left;
 }
 
 .collapse-icon {

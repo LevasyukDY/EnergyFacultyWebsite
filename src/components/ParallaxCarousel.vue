@@ -28,7 +28,7 @@ export default {
   mounted() {
     axios
       .get(this.newsURL + "?is_slider_item=1")
-      .then((response) => (this.slides = response.data.reverse()));
+      .then((response) => (this.slides = response.data));
   },
 };
 </script>

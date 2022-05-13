@@ -28,7 +28,7 @@ export default {
   created() {
     axios
       .get(this.newsURL)
-      .then((response) => (this.news = response.data["data"].reverse()));
+      .then((response) => (this.news = response.data["data"]));
   },
   methods: {
     normalizePostContent(id) {
