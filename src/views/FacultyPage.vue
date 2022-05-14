@@ -1,6 +1,12 @@
 <template>
   <div class="faculty">
-    <img src="@/assets/images/факультет.png" />
+    <!-- <img src="@/assets/images/факультет.png" /> -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652504903560!6m8!1m7!1sCAoSLEFGMVFpcE5xVVhlVlZFc1JzTGxrdHJOYzU4ZGRnNGVIeGV0b3dIdThodllq!2m2!1d52.0345972!2d113.529075!3f355.40899997066197!4f19.6765493257372!5f0.4000000000000002"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
     <h1>О факультете</h1>
     <div class="faculty__text">
       <p>
@@ -70,12 +76,60 @@
         факультета.
       </p>
     </div>
+    <h1>Достижения кафедры ИВТиПМ</h1>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652505053256!6m8!1m7!1sCAoSLEFGMVFpcE83WHNldVZQVDljZ2N1eEFMcXN2N0FrX2poTl82ejVMS3lvZlV1!2m2!1d52.03451949999999!2d113.5296383!3f0.0956196592550782!4f14.42806457560593!5f0.4000000000000002"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <h1>Компьютерные классы</h1>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652505324070!6m8!1m7!1sCAoSLEFGMVFpcE9kbndHX0tYN3l3TTFaTG5RS1dKQ0l0LUdmcVJZOFdyTEdESE9E!2m2!1d52.0347112!2d113.5293667!3f174.60192902493802!4f-9.628630601198267!5f0.7820865974627469"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652505361453!6m8!1m7!1sCAoSLEFGMVFpcE05SG1SZzRid211TnhtNzFXejJIRVc1STZyTXU5YU5yR1JpU2dV!2m2!1d52.0349722!2d113.5292633!3f127.6000511300337!4f-5.67410440043092!5f0.7820865974627469"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <h1>Лаборатория химии</h1>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652505598067!6m8!1m7!1sCAoSLEFGMVFpcE5GaUxSM0ZqQk1rbFZPMUcyc1ZBbHV2NGUwRUY3T2s1eXlPMnRq!2m2!1d52.03445!2d113.52993!3f331.47616264369015!4f1.5553465947080838!5f0.7820865974627469"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <h1>Места отдыха</h1>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652505524535!6m8!1m7!1sCAoSLEFGMVFpcE94T0dKMjI1UkV1R0dGT1p5bWdoRmZBM2thVTZhLVhLQWRyZ0Q0!2m2!1d52.0346055!2d113.52938!3f0.768814200545421!4f-3.3743349937843448!5f0.7820865974627469"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652505484683!6m8!1m7!1sCAoSLEFGMVFpcE5LQjd1Tnh6YnlHRnlxN0pWbklRN2lmaGo2ZFJTbG1DYmZXQnls!2m2!1d52.0348805!2d113.52957!3f54.35026352129351!4f-4.453111744782731!5f0.7820865974627469"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
   </div>
 </template>
 
 <script></script>
 
 <style scoped>
+iframe {
+  border: 0;
+  width: 100%;
+  height: 60vh;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
 img {
   object-fit: cover;
   width: 100%;
