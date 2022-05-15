@@ -8,15 +8,15 @@
         placeholder="Поиск..."
       />
     </div>
-    <div class="categories">
-      <div class="category">
-        <button :class="{ active: isActive[0] }" @click="selectTag(0)">
+    <div class="tags">
+      <div class="tag">
+        <button :class="{ active: isActive === 0 }" @click="selectTag(0)">
           Все
         </button>
       </div>
-      <div class="category" v-for="(cat, i) in categories" :key="i">
+      <div class="tag" v-for="cat in tags" :key="cat.id">
         <button
-          :class="{ active: isActive[cat.id] }"
+          :class="{ active: isActive === cat.id }"
           @click="selectTag(cat.id)"
         >
           {{ cat.title }}
@@ -36,7 +36,7 @@
         @click="$router.push('/news/' + post.id)"
       />
       <strong @click="$router.push('/news/' + post.id)">
-        {{ post.title }}
+        {{ post.id }} {{ post.title }}
       </strong>
       <p>
         {{ post.content.replace(/<[^>]*>/g, " ").replace(/&[^;]*;/g, " ") }}
@@ -55,7 +55,7 @@
       </h3>
     </div>
   </div>
-  <!-- <div ref="observer" class="observer"></div> -->
+  <div ref="observer" class="observer"></div>
 </template>
 
 <script>
@@ -63,15 +63,15 @@ import axios from "axios";
 export default {
   data: () => ({
     storageURL: "http://127.0.0.1:8000/storage/",
-    newsURL: "http://127.0.0.1:8000/api/news?per_page=20&page=1",
+    newsURL: "http://127.0.0.1:8000/api/news",
     tagsURL: "http://127.0.0.1:8000/api/tags",
-    // page: 1,
+    page: 0,
+    per_page: 8,
+    totalPages: 0,
     news: [],
     search: "",
-    categories: [],
-    isActive: {
-      0: true,
-    },
+    tags: [],
+    isActive: 0,
     alphabet: {
       a: "ф",
       b: "и",
@@ -120,46 +120,92 @@ export default {
     ],
   }),
   created() {
-    axios
-      .get(this.newsURL)
-      .then((response) => (this.news = response.data["data"]));
-    axios
-      .get(this.tagsURL)
-      .then((response) => (this.categories = response.data));
+    this.fetchTags();
   },
   watch: {
     search() {
-      axios
-        .get(this.newsURL + "&content=" + this.search)
-        .then((response) => (this.news = response.data["data"]));
+      this.page = 1;
+      if (this.isActive === 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then((response) => (this.news = response.data["data"]));
+      } else {
+        axios
+          .get(this.newsURL, {
+            params: {
+              tag_id: this.isActive,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then(
+            (response) => (
+              (this.news = response.data["data"]),
+              (this.totalPages = response.data["meta"]["last_page"])
+            )
+          );
+      }
     },
   },
-  // mounted() {
-  //   const options = {
-  //     rootMargin: "0px",
-  //     threshold: 1.0,
-  //   };
-  //   const callback = (entries) => {
-  //     if (entries[0].isIntersecting) {
-  //       this.loadMorePosts();
-  //       console.log("ПЕРЕСЕЧЁН");
-  //     }
-  //   };
-  //   const observer = new IntersectionObserver(callback, options);
-  //   observer.observe(this.$refs.observer);
-  // },
+  mounted() {
+    const options = {
+      rootMargin: "0px",
+      threshold: 1.0,
+    };
+    const callback = (entries) => {
+      if (entries[0].isIntersecting) {
+        this.loadMorePosts();
+      }
+    };
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(this.$refs.observer);
+  },
   methods: {
-    // loadMorePosts() {
-    //   this.page += 1;
-    //   axios
-    //     .get(
-    //       "http://127.0.0.1:8000/api/news?per_page=8&page=" +
-    //         this.page.toString()
-    //     )
-    //     .then(
-    //       (response) => (this.news = [...this.news, ...response.data["data"]])
-    //     );
-    // },
+    loadMorePosts() {
+      this.page += 1;
+      if (this.isActive === 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then(
+            (response) => (
+              (this.news = [...this.news, ...response.data["data"]]),
+              (this.totalPages = response.data["meta"]["last_page"])
+            )
+          );
+      } else {
+        axios
+          .get(this.newsURL, {
+            params: {
+              tag_id: this.isActive,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then(
+            (response) => (
+              (this.news = [...this.news, ...response.data["data"]]),
+              (this.totalPages = response.data["meta"]["last_page"])
+            )
+          );
+      }
+    },
+    fetchTags() {
+      axios.get(this.tagsURL).then((response) => (this.tags = response.data));
+    },
     changeSearchLang() {
       let search_copy = this.search.toLowerCase();
       let reversed_alphabet = {};
@@ -213,18 +259,28 @@ export default {
       this.search = this.changeSearchLang();
     },
     selectTag(id) {
-      this.isActive = {};
-      this.isActive[id] = !this.isActive[id];
-      this.showTaggedNews(id);
-    },
-    showTaggedNews(id) {
+      this.isActive = id;
+      this.page = 1;
       if (id > 0) {
         axios
-          .get(this.newsURL + "&tag_id=" + id)
+          .get(this.newsURL, {
+            params: {
+              tag_id: id,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
           .then((response) => (this.news = response.data["data"]));
       } else {
         axios
-          .get(this.newsURL)
+          .get(this.newsURL, {
+            params: {
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
           .then((response) => (this.news = response.data["data"]));
       }
     },
@@ -237,6 +293,21 @@ export default {
 //   background-color: #39b665;
 //   height: 30px;
 // }
+
+.pages__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.page {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.current-page {
+  border: 2px solid teal;
+}
 
 .not_found__maybe {
   display: flex;
@@ -330,14 +401,14 @@ svg {
   align-items: center;
 }
 
-.categories {
+.tags {
   display: flex;
   flex-direction: row;
   align-items: center;
   flex-flow: row wrap;
 }
 
-.category {
+.tag {
   margin: 0px 7px;
 }
 
@@ -374,11 +445,11 @@ input {
 }
 
 @media (max-width: 765px) {
-  .categories {
+  .tags {
     flex-grow: 1;
     justify-content: center;
   }
-  .category {
+  .tag {
     margin-bottom: 5px;
   }
 }
