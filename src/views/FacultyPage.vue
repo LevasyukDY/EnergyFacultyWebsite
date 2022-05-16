@@ -76,13 +76,6 @@
         факультета.
       </p>
     </div>
-    <h1>Достижения кафедры ИВТиПМ</h1>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652505053256!6m8!1m7!1sCAoSLEFGMVFpcE83WHNldVZQVDljZ2N1eEFMcXN2N0FrX2poTl82ejVMS3lvZlV1!2m2!1d52.03451949999999!2d113.5296383!3f0.0956196592550782!4f14.42806457560593!5f0.4000000000000002"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
     <h1>Компьютерные классы</h1>
     <iframe
       src="https://www.google.com/maps/embed?pb=!4v1652505324070!6m8!1m7!1sCAoSLEFGMVFpcE9kbndHX0tYN3l3TTFaTG5RS1dKQ0l0LUdmcVJZOFdyTEdESE9E!2m2!1d52.0347112!2d113.5293667!3f174.60192902493802!4f-9.628630601198267!5f0.7820865974627469"
@@ -112,6 +105,13 @@
     ></iframe>
     <iframe
       src="https://www.google.com/maps/embed?pb=!4v1652505484683!6m8!1m7!1sCAoSLEFGMVFpcE5LQjd1Tnh6YnlHRnlxN0pWbklRN2lmaGo2ZFJTbG1DYmZXQnls!2m2!1d52.0348805!2d113.52957!3f54.35026352129351!4f-4.453111744782731!5f0.7820865974627469"
+      allowfullscreen="true"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <h1>Достижения кафедры ИВТиПМ</h1>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!4v1652505053256!6m8!1m7!1sCAoSLEFGMVFpcE83WHNldVZQVDljZ2N1eEFMcXN2N0FrX2poTl82ejVMS3lvZlV1!2m2!1d52.03451949999999!2d113.5296383!3f0.0956196592550782!4f14.42806457560593!5f0.4000000000000002"
       allowfullscreen="true"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
