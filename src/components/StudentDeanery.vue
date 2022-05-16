@@ -1,5 +1,7 @@
 <template>
-  <h1>Студенческий деканат</h1>
+  <h1>
+    <a href="https://vk.com/energopozitron">Студенческий деканат</a>
+  </h1>
   <div class="student_deanery">
     <div class="student_deanery__img">
       <img src="@/assets/images/позитрон.png" alt="pozitron" />
@@ -39,6 +41,15 @@
 
 p {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .student_deanery__text {

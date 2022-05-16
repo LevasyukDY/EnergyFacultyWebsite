@@ -85,12 +85,18 @@ export default {
   cursor: pointer;
 }
 
-.sidebar img {
+.sidebar__logo_content img {
   height: 38px;
   margin-right: 9px;
+  transition: 0.5s;
 }
 
-.sidebar span {
+.sidebar__logo_content img:hover {
+  transform: rotate(360deg);
+  transition: 0.5s;
+}
+
+.sidebar__logo_content span {
   text-align: left;
 }
 
@@ -102,6 +108,10 @@ export default {
   color: rgba(255, 255, 255, 0.7);
 
   transition: 0.2s linear;
+}
+
+.collapse-icon:hover {
+  cursor: pointer;
 }
 
 .rotate-180 {

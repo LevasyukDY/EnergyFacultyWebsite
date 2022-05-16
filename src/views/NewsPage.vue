@@ -36,7 +36,7 @@
         @click="$router.push('/news/' + post.id)"
       />
       <strong @click="$router.push('/news/' + post.id)">
-        {{ post.id }} {{ post.title }}
+        {{ post.title }}
       </strong>
       <p>
         {{ post.content.replace(/<[^>]*>/g, " ").replace(/&[^;]*;/g, " ") }}
