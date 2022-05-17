@@ -7,6 +7,9 @@
         alt="news"
         @click="$router.push('/news/' + post.id)"
       />
+      <div class="news__date">
+        <div class="news__date__day_month">{{ newsDate(post) }}</div>
+      </div>
       <strong @click="$router.push('/news/' + post.id)">
         {{ post.title }}
       </strong>
@@ -37,6 +40,10 @@ export default {
         .replace(/&[^;]*;/g, " ")
         .replace(/ +/g, " ");
     },
+    newsDate(post) {
+      const date = post.created_at.slice(5, 10).split("-");
+      return date[1] + "/" + date[0];
+    },
   },
 };
 </script>
@@ -51,6 +58,7 @@ export default {
 .news__content {
   height: 100%;
   width: 24%;
+  position: relative;
 }
 
 .news__content p {
@@ -71,6 +79,27 @@ img:hover,
 strong:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.news__date {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  background: #ffffff40;
+  box-shadow: 0 8px 32px 0 #1f26875e;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff2e;
+}
+
+.news__date__day_month {
+  color: #ffffffde;
+  font-size: larger;
 }
 
 h1:hover {

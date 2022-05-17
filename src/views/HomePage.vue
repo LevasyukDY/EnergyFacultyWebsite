@@ -85,6 +85,11 @@ img {
   border-radius: 20px;
 }
 
+.telegram_bot__text {
+  margin: 10px 0;
+  padding: 0 40px;
+}
+
 .telegram_bot__content {
   display: flex;
   align-items: flex-start;
@@ -93,16 +98,23 @@ img {
 .telegram_bot__description {
   text-align: justify;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  align-self: center;
+  justify-content: center;
+  height: 76vh;
+  flex-flow: row wrap;
+  align-content: space-around;
 }
 
 .telegram_bot__description img {
   width: 15rem;
   height: 15rem;
   border-radius: 0;
-  padding: 5rem 0;
+  transition: 0.3s;
+}
+
+.telegram_bot__description img:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
 }
 
 @media (max-width: 740px) {
@@ -110,8 +122,8 @@ img {
     flex-direction: column;
     align-items: center;
   }
-  .telegram_bot__description img {
-    padding: 0;
+  .telegram_bot__description {
+    height: 100%;
   }
 }
 </style>
