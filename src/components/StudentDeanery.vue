@@ -53,7 +53,7 @@ a:hover {
 }
 
 .student_deanery__text {
-  text-align: left;
+  text-align: justify;
   margin-left: 10px;
 }
 
