@@ -98,8 +98,10 @@ strong:hover {
 }
 
 .news__date__day_month {
-  color: #ffffffde;
+  color: #ffffffcc;
   font-size: larger;
+  font-weight: bold;
+  text-shadow: 1px 1px 10px #4d4d4d;
 }
 
 h1:hover {
