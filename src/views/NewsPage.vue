@@ -35,6 +35,9 @@
         alt="news"
         @click="$router.push('/news/' + post.id)"
       />
+      <div class="news__date">
+        <div class="news__date__day_month">{{ newsDate(post) }}</div>
+      </div>
       <strong @click="$router.push('/news/' + post.id)">
         {{ post.title }}
       </strong>
@@ -168,6 +171,10 @@ export default {
     observer.observe(this.$refs.observer);
   },
   methods: {
+    newsDate(post) {
+      const date = post.created_at.slice(5, 10).split("-");
+      return date[1] + "/" + date[0];
+    },
     loadMorePosts() {
       this.page += 1;
       if (this.isActive === 0) {
@@ -326,6 +333,7 @@ export default {
   height: 100%;
   width: 24%;
   margin: 0 5px;
+  position: relative;
 
   img {
     width: 100%;
@@ -387,6 +395,29 @@ svg {
 </style>
 
 <style scoped>
+.news__date {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  background: #ffffff40;
+  box-shadow: 0 8px 32px 0 #8787875e;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff2e;
+}
+
+.news__date__day_month {
+  color: #ffffffcc;
+  font-size: larger;
+  font-weight: bold;
+  text-shadow: 1px 1px 10px #4d4d4d;
+}
+
 .filters {
   margin-bottom: 10px;
   display: flex;

@@ -8,6 +8,15 @@
       :content="parallaxFixedContent ? slide.content : ''"
       @click="$router.push('/news/' + slide.id)"
     />
+    <!-- <div class="news__date">
+      <div
+        class="news__date__day_month"
+        v-for="slide in slides"
+        :key="slide.id"
+      >
+        {{ newsDate(slide) }}
+      </div>
+    </div> -->
   </vueper-slides>
 </template>
 
@@ -30,6 +39,12 @@ export default {
       .get(this.newsURL + "?is_slider_item=1")
       .then((response) => (this.slides = response.data));
   },
+  // methods: {
+  //   newsDate(post) {
+  //     const date = post.created_at.slice(5, 10).split("-");
+  //     return date[1] + "/" + date[0];
+  //   },
+  // },
 };
 </script>
 
@@ -67,4 +82,31 @@ export default {
     font-size: 0.65em;
   }
 }
+</style>
+
+<style scoped>
+/* .news__date {
+  position: absolute;
+  display: block;
+  top: 95px;
+  left: 10px;
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  background: #ffffff40;
+  box-shadow: 0 8px 32px 0 #8787875e;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff2e;
+  z-index: 100;
+}
+
+.news__date__day_month {
+  color: #ffffffcc;
+  font-size: larger;
+  font-weight: bold;
+  text-shadow: 1px 1px 10px #4d4d4d;
+  z-index: 100;
+} */
 </style>

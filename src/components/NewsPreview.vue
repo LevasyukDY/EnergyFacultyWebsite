@@ -92,7 +92,7 @@ strong:hover {
   margin-left: 5px;
   margin-top: 5px;
   background: #ffffff40;
-  box-shadow: 0 8px 32px 0 #1f26875e;
+  box-shadow: 0 8px 32px 0 #8787875e;
   backdrop-filter: blur(6px);
   border: 1px solid #ffffff2e;
 }
