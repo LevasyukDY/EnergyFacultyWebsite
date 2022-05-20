@@ -1,7 +1,12 @@
 <template>
-  <Carousel :autoplay="5000" :wrap-around="true" :slide-width="100">
-    <Slide v-for="slide in slides" :key="slide.id">
+  <Carousel :autoplay="5000" :wrap-around="true">
+    <Slide
+      v-for="slide in slides"
+      :key="slide.id"
+      @click="$router.push('/news/' + slide.id)"
+    >
       <img :srcset="storageURL + slide.preview" />
+      <p>{{ slide.title }}</p>
     </Slide>
 
     <template #addons>
@@ -26,8 +31,6 @@ export default defineComponent({
     Navigation,
   },
   data: () => ({
-    parallax: 1,
-    parallaxFixedContent: true,
     storageURL: "http://127.0.0.1:8000/storage/",
     newsURL: "http://127.0.0.1:8000/api/news",
     slides: [],
@@ -48,15 +51,81 @@ export default defineComponent({
 
 <style>
 .carousel__viewport {
-  height: 300px;
   border-radius: 20px;
-  padding-left: 100px;
-  padding-right: 100px;
+}
+
+.carousel__viewport:hover {
   cursor: pointer;
+}
+
+.carousel__prev,
+.carousel__next {
+  background: #ffffff40;
+  box-shadow: 0 8px 32px 0 #8787875e;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff2e;
+}
+
+.carousel__prev {
+  top: 50%;
+  left: 25px;
+}
+
+.carousel__next {
+  top: 50%;
+  right: 25px;
+}
+
+.carousel__pagination {
+  padding: 0;
+  position: absolute;
+  top: 250px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+  z-index: 5;
+}
+
+.carousel__pagination-button {
+  border-radius: 20px;
+  height: 10px;
+  width: 10px;
+  background: #ffffff40;
+  box-shadow: 0 8px 32px 0 #8787875e;
+  backdrop-filter: blur(6px);
+  border: 1px solid #ffffff2e;
+}
+
+.carousel__pagination-button--active {
+  background-color: #c5c5c5;
+}
+
+.carousel__icon {
+  color: #ffffffcc;
 }
 </style>
 
 <style scoped>
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+p {
+  position: absolute;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: #4d4d4d 1px 1px 10px;
+  background: #ffffff40;
+  box-shadow: 0 8px 32px 0 #8787875e;
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 5px 15px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
 /* .news__date {
   position: absolute;
   display: block;
