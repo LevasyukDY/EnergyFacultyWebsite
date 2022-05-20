@@ -1,32 +1,30 @@
 <template>
-  <vueper-slides ref="myVueperSlides" :parallax="parallax" fixed-height="true">
-    <vueper-slide
-      v-for="(slide, i) in slides"
-      :key="i"
-      :image="storageURL + slide.preview"
-      :title="parallaxFixedContent ? slide.title : ''"
-      :content="parallaxFixedContent ? slide.content : ''"
-      @click="$router.push('/news/' + slide.id)"
-    />
-    <!-- <div class="news__date">
-      <div
-        class="news__date__day_month"
-        v-for="slide in slides"
-        :key="slide.id"
-      >
-        {{ newsDate(slide) }}
-      </div>
-    </div> -->
-  </vueper-slides>
+  <Carousel :autoplay="5000" :wrap-around="true" :slide-width="100">
+    <Slide v-for="slide in slides" :key="slide.id">
+      <img :srcset="storageURL + slide.preview" />
+    </Slide>
+
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+  </Carousel>
 </template>
 
 <script>
-import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 import axios from "axios";
+import { defineComponent } from "vue";
+import { Carousel, Pagination, Slide, Navigation } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
 
-export default {
-  components: { VueperSlides, VueperSlide },
+export default defineComponent({
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
+  },
   data: () => ({
     parallax: 1,
     parallaxFixedContent: true,
@@ -45,42 +43,16 @@ export default {
   //     return date[1] + "/" + date[0];
   //   },
   // },
-};
+});
 </script>
 
 <style>
-.vueperslides--fixed-height {
+.carousel__viewport {
   height: 300px;
-}
-.vueperslides__parallax-wrapper {
   border-radius: 20px;
-}
-.vueperslide__content-wrapper {
   padding-left: 100px;
   padding-right: 100px;
   cursor: pointer;
-}
-.vueperslide__title {
-  font-size: 1.5em;
-  color: #fff;
-  text-shadow: black 1px 1px 5px;
-}
-.vueperslide__content {
-  color: #fff;
-  text-shadow: black 1px 1px 5px;
-}
-
-.vueperslide__content-wrapper:not(.vueperslide__content-wrapper--outside-top):not(.vueperslide__content-wrapper--outside-bottom) {
-  height: 80%;
-}
-
-@media (max-width: 600px) {
-  .vueperslide__title {
-    font-size: 1em;
-  }
-  .vueperslide__content {
-    font-size: 0.65em;
-  }
 }
 </style>
 
