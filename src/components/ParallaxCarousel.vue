@@ -1,5 +1,12 @@
 <template>
-  <vueper-slides ref="myVueperSlides" :parallax="parallax" fixed-height="true">
+  <vueper-slides
+    ref="myVueperSlides"
+    :parallax="parallax"
+    :fixed-height="fixedHeight"
+    :autoplay="autoplay"
+    :duration="duration"
+    :parallaxFixedContent="parallaxFixedContent"
+  >
     <vueper-slide
       v-for="(slide, i) in slides"
       :key="i"
@@ -8,15 +15,6 @@
       :content="parallaxFixedContent ? slide.content : ''"
       @click="$router.push('/news/' + slide.id)"
     />
-    <!-- <div class="news__date">
-      <div
-        class="news__date__day_month"
-        v-for="slide in slides"
-        :key="slide.id"
-      >
-        {{ newsDate(slide) }}
-      </div>
-    </div> -->
   </vueper-slides>
 </template>
 
@@ -28,23 +26,20 @@ import axios from "axios";
 export default {
   components: { VueperSlides, VueperSlide },
   data: () => ({
+    autoplay: true,
+    fixedHeight: true,
+    duration: 4000,
     parallax: 1,
     parallaxFixedContent: true,
     storageURL: "http://127.0.0.1:8000/storage/",
     newsURL: "http://127.0.0.1:8000/api/news",
     slides: [],
   }),
-  mounted() {
+  created() {
     axios
       .get(this.newsURL + "?is_slider_item=1")
       .then((response) => (this.slides = response.data));
   },
-  // methods: {
-  //   newsDate(post) {
-  //     const date = post.created_at.slice(5, 10).split("-");
-  //     return date[1] + "/" + date[0];
-  //   },
-  // },
 };
 </script>
 
