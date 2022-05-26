@@ -29,11 +29,19 @@ export default {
   created() {
     if (document.documentElement.clientWidth < 480) this.mobileSize = true;
     else this.mobileSize = false;
+    console.log(this.$store.state.darkTheme);
+    if (this.$store.state.darkTheme == true) {
+      document.body.classList.add("dark-theme");
+    }
   },
 };
 </script>
 
 <style>
+:root {
+  --dark-theme-bg-color: #181818;
+}
+
 #app {
   font-family: sans-serif, Roboto, Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
@@ -44,6 +52,10 @@ export default {
 
 body {
   margin: 0%;
+}
+
+.dark-theme {
+  background-color: var(--dark-theme-bg-color);
 }
 
 .wrapper {

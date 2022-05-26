@@ -2,7 +2,9 @@
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <div class="sidebar__logo_content" @click="$router.push('/')">
       <img src="@/assets/logo.png" alt="logo" />
-      <span>Энергетический факультет ЗабГУ</span>
+      <transition name="fade">
+        <span v-if="!collapsed">Энергетический факультет ЗабГУ</span>
+      </transition>
     </div>
 
     <SidebarLink to="/profile" icon="fas fa-user">Профиль</SidebarLink>
@@ -21,12 +23,23 @@
 
     <SidebarLink to="/contacts" icon="fas fa-phone">Контакты</SidebarLink>
 
+    <div
+      class="sidebar__dark_theme"
+      :value="darkTheme"
+      @click="$store.commit('changeTheme')"
+    >
+      <i class="fas fa-moon"></i>
+      <transition name="fade">
+        <span v-if="!collapsed">День/Ночь</span>
+      </transition>
+    </div>
+
     <span
       class="collapse-icon"
       :class="{ 'rotate-180': collapsed }"
       @click="toggleSidebar"
     >
-      <i class="fas fa-angle-double-left" />
+      <i class="fas fa-angle-double-left"></i>
     </span>
   </div>
 </template>
@@ -38,6 +51,9 @@ import { collapsed, toggleSidebar, sidebarWidth } from "./state";
 export default {
   props: {},
   components: { SidebarLink },
+  data: () => ({
+    darkTheme: false,
+  }),
   setup() {
     return { collapsed, toggleSidebar, sidebarWidth };
   },
@@ -53,6 +69,16 @@ export default {
 </style>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .sidebar {
   color: white;
   background-color: var(--sidebar-bg-color);
@@ -117,5 +143,42 @@ export default {
 .rotate-180 {
   transform: rotate(180deg);
   transition: 0.2s linear;
+}
+
+.sidebar__dark_theme {
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  position: relative;
+  font-weight: 400;
+  user-select: none;
+
+  margin: 0.1em 0;
+  padding: 0.4em;
+  border-radius: 0.25em;
+  height: 1.5em;
+
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar__dark_theme:hover {
+  background-color: var(--sidebar-item-hover);
+}
+
+.sidebar__dark_theme.active {
+  background-color: var(--sidebar-item-active);
+}
+
+.sidebar__dark_theme svg {
+  flex-shrink: 0;
+  width: 25px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.sidebar__dark_theme span {
+  white-space: nowrap;
 }
 </style>
