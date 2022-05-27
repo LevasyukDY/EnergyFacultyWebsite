@@ -11,9 +11,11 @@
     ></iframe>
     <StudentDeanery />
     <div class="telegram_bot__info">
-      <h1>
-        <a href="https://t.me/zabgu_energy_faculty_bot">Telegram-бот</a>
-      </h1>
+      <div class="telegram_bot__info__title">
+        <h1>
+          <a href="https://t.me/zabgu_energy_faculty_bot">Telegram-бот</a>
+        </h1>
+      </div>
       <div class="telegram_bot__content">
         <img src="@/assets/TBot.gif" alt="tbot" />
         <div class="telegram_bot__description">
@@ -71,9 +73,13 @@ h1:hover {
   text-decoration: underline;
 }
 
-h1 a {
+.telegram_bot__info__title h1 a {
   text-decoration: none;
   color: #2c3e50;
+}
+
+.telegram_bot__info__title h1 .sidebar-dark-theme {
+  color: #dbdbdb;
 }
 
 h1 a:hover {

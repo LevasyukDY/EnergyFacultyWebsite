@@ -29,10 +29,6 @@ export default {
   created() {
     if (document.documentElement.clientWidth < 480) this.mobileSize = true;
     else this.mobileSize = false;
-    console.log(this.$store.state.darkTheme);
-    if (this.$store.state.darkTheme == true) {
-      document.body.classList.add("dark-theme");
-    }
   },
 };
 </script>
@@ -47,15 +43,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 body {
   margin: 0%;
+  transition: 0.3s;
+  color: #2c3e50;
 }
 
 .dark-theme {
   background-color: var(--dark-theme-bg-color);
+  transition: 0.3s;
+  color: #dbdbdb;
 }
 
 .wrapper {

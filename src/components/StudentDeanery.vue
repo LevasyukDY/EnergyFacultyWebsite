@@ -1,6 +1,8 @@
 <template>
   <h1>
-    <a href="https://vk.com/energopozitron">Студенческий деканат</a>
+    <a href="https://vk.com/energopozitron" class="student_deanery__title">
+      Студенческий деканат
+    </a>
   </h1>
   <div class="student_deanery">
     <div class="student_deanery__img">
@@ -43,9 +45,13 @@ p {
   margin: 0;
 }
 
-a {
+.student_deanery__title {
   text-decoration: none;
   color: #2c3e50;
+}
+
+.sidebar-dark-theme {
+  color: #dbdbdb;
 }
 
 a:hover {

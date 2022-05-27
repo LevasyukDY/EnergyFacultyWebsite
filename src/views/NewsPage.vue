@@ -451,6 +451,12 @@ input {
   padding: 2px 10px;
 }
 
+.search .sidebar-dark-theme {
+  background-color: #4d4d4d;
+  color: #dbdbdb;
+  border: 2px solid #4f4f4f;
+}
+
 .news {
   display: flex;
   flex-direction: row;

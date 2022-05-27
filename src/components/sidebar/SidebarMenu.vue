@@ -25,8 +25,8 @@
 
     <div
       class="sidebar__dark_theme"
-      :value="darkTheme"
-      @click="$store.commit('changeTheme')"
+      :class="{ 'change-icon': $store.state.darkTheme }"
+      @click="toggleTheme()"
     >
       <i class="fas fa-moon"></i>
       <transition name="fade">
@@ -37,7 +37,7 @@
     <span
       class="collapse-icon"
       :class="{ 'rotate-180': collapsed }"
-      @click="toggleSidebar"
+      @click="toggleSidebar()"
     >
       <i class="fas fa-angle-double-left"></i>
     </span>
@@ -51,22 +51,52 @@ import { collapsed, toggleSidebar, sidebarWidth } from "./state";
 export default {
   props: {},
   components: { SidebarLink },
-  data: () => ({
-    darkTheme: false,
-  }),
   setup() {
     return { collapsed, toggleSidebar, sidebarWidth };
   },
+  methods: {
+    toggleTheme() {
+      this.$store.commit("changeTheme");
+      if (this.$store.state.darkTheme == true) {
+        document.body.classList.add("dark-theme");
+        document.querySelector(".sidebar").classList.add("sidebar-dark-theme");
+        document
+          .querySelector(".telegram_bot__info__title")
+          .querySelector("h1")
+          .querySelector("a")
+          .classList.add("sidebar-dark-theme");
+        document
+          .querySelector(".student_deanery__title")
+          .classList.add("sidebar-dark-theme");
+        // document
+        //   .querySelector(".filters")
+        //   .querySelector(".search")
+        //   .querySelector("input")
+        //   .classList.add("sidebar-dark-theme");
+      } else {
+        document.body.classList.remove("dark-theme");
+        document
+          .querySelector(".sidebar")
+          .classList.remove("sidebar-dark-theme");
+        document
+          .querySelector(".telegram_bot__info__title")
+          .querySelector("h1")
+          .querySelector("a")
+          .classList.remove("sidebar-dark-theme");
+        document
+          .querySelector(".student_deanery__title")
+          .classList.remove("sidebar-dark-theme");
+        // document
+        //   .querySelector(".filters")
+        //   .querySelector(".search")
+        //   .querySelector("input")
+        //   .classList.remove("sidebar-dark-theme");
+      }
+      this.$router.push(this.$route.path);
+    },
+  },
 };
 </script>
-
-<style>
-:root {
-  --sidebar-bg-color: #2f5185;
-  --sidebar-item-hover: #3862a1;
-  --sidebar-item-active: #273667;
-}
-</style>
 
 <style scoped>
 .fade-enter-active,
@@ -81,7 +111,7 @@ export default {
 
 .sidebar {
   color: white;
-  background-color: var(--sidebar-bg-color);
+  background-color: #2f5185;
 
   float: left;
   position: fixed;
@@ -95,6 +125,11 @@ export default {
 
   display: flex;
   flex-direction: column;
+}
+
+.sidebar-dark-theme {
+  background-color: #0f0f0f;
+  color: white;
 }
 
 .sidebar__logo_content {
@@ -131,7 +166,7 @@ export default {
   bottom: 0;
   padding: 0.75em;
 
-  color: rgba(255, 255, 255, 0.7);
+  color: #ffffffb3;
 
   transition: 0.2s linear;
 }
@@ -164,11 +199,11 @@ export default {
 }
 
 .sidebar__dark_theme:hover {
-  background-color: var(--sidebar-item-hover);
+  background-color: #3862a1;
 }
 
 .sidebar__dark_theme.active {
-  background-color: var(--sidebar-item-active);
+  background-color: #273667;
 }
 
 .sidebar__dark_theme svg {
@@ -176,9 +211,15 @@ export default {
   width: 25px;
   height: 18px;
   margin-right: 10px;
+  transition: 0.2s linear;
 }
 
 .sidebar__dark_theme span {
   white-space: nowrap;
+}
+
+.change-icon svg {
+  transform: rotate(220deg);
+  transition: 0.2s linear;
 }
 </style>
