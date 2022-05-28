@@ -1,5 +1,11 @@
 <template>
   <div class="abiturients">
+    <button @click="$router.push('/department/' + '1')">
+      Кафедра информатики вычислительной техники, прикладной математики
+    </button>
+    <button @click="$router.push('/department/' + '2')">Кафедра химии</button>
+
+    <!-- 
     <img src="@/assets/images/приемная-комиссия.jpeg" />
     <h1>Приёмная кампания 2022</h1>
     <p>
@@ -36,9 +42,24 @@
         Приём иностранных граждан
       </a>
       <a href="http://entrant.zabgu.ru/?page_id=12">Правила приёма</a>
-    </div>
+    </div> -->
   </div>
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  data: () => ({
+    storageURL: "http://127.0.0.1:8000/storage/",
+    chairsURL: "http://127.0.0.1:8000/api/chairs",
+    chairs: [],
+  }),
+  created() {
+    axios.get(this.chairsURL).then((response) => (this.chairs = response.data));
+    console.log(this.chairs[0]);
+  },
+};
+</script>
 
 <style scoped>
 img {
@@ -75,7 +96,8 @@ a:hover {
   justify-content: center;
 }
 
-.links a {
+.links a,
+button {
   background-color: #fff;
   box-shadow: #c1c1c1 1px 1px 10px;
   border: 1px solid #6c84be;
@@ -90,7 +112,8 @@ a:hover {
   display: inline-block;
 }
 
-.links a:hover {
+.links a:hover,
+button:hover {
   transition: 0.2s;
   background-color: #3862a1;
   cursor: pointer;

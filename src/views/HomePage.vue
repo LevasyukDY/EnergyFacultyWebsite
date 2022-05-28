@@ -17,7 +17,9 @@
         </h1>
       </div>
       <div class="telegram_bot__content">
-        <img src="@/assets/TBot.gif" alt="tbot" />
+        <div class="telegram_bot__image">
+          <img src="@/assets/TBot.gif" alt="tbot" />
+        </div>
         <div class="telegram_bot__description">
           <div class="telegram_bot__text">
             <p>

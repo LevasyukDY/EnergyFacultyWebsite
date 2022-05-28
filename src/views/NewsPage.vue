@@ -2,6 +2,7 @@
   <div class="filters">
     <div class="search">
       <input
+        class="search__input"
         :value="search"
         @input="search = $event.target.value"
         type="text"
@@ -443,7 +444,7 @@ svg {
   margin: 0px 7px;
 }
 
-input {
+.search__input {
   width: 30ch;
   border: 2px solid #395fb6;
   border-radius: 15px;
@@ -451,7 +452,7 @@ input {
   padding: 2px 10px;
 }
 
-.search .sidebar-dark-theme {
+.search__input .dark-theme {
   background-color: #4d4d4d;
   color: #dbdbdb;
   border: 2px solid #4f4f4f;
@@ -492,7 +493,7 @@ input {
 }
 
 @media (max-width: 420px) {
-  input {
+  .search__input {
     width: 24ch;
   }
 }

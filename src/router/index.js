@@ -41,6 +41,11 @@ const routes = [
     name: "Post",
     component: () => import("../views/PostPage.vue"),
   },
+  {
+    path: "/department/:id",
+    name: "Department",
+    component: () => import("../views/DepartmentPage.vue"),
+  },
 ];
 
 const router = createRouter({

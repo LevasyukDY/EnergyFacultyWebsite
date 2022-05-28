@@ -68,11 +68,6 @@ export default {
         document
           .querySelector(".student_deanery__title")
           .classList.add("sidebar-dark-theme");
-        // document
-        //   .querySelector(".filters")
-        //   .querySelector(".search")
-        //   .querySelector("input")
-        //   .classList.add("sidebar-dark-theme");
       } else {
         document.body.classList.remove("dark-theme");
         document
@@ -86,11 +81,6 @@ export default {
         document
           .querySelector(".student_deanery__title")
           .classList.remove("sidebar-dark-theme");
-        // document
-        //   .querySelector(".filters")
-        //   .querySelector(".search")
-        //   .querySelector("input")
-        //   .classList.remove("sidebar-dark-theme");
       }
       this.$router.push(this.$route.path);
     },
