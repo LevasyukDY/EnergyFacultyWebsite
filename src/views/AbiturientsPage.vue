@@ -1,11 +1,14 @@
 <template>
   <div class="abiturients">
-    <button @click="$router.push('/department/' + '1')">
-      Кафедра информатики вычислительной техники, прикладной математики
+    <h1>Кафедры</h1>
+    <button
+      v-for="chair in chairs"
+      :key="chair.id"
+      @click="$router.push('/department/' + chair.id)"
+    >
+      {{ chair.full_title }}
     </button>
-    <button @click="$router.push('/department/' + '2')">Кафедра химии</button>
 
-    <!-- 
     <img src="@/assets/images/приемная-комиссия.jpeg" />
     <h1>Приёмная кампания 2022</h1>
     <p>
@@ -42,7 +45,7 @@
         Приём иностранных граждан
       </a>
       <a href="http://entrant.zabgu.ru/?page_id=12">Правила приёма</a>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -50,13 +53,11 @@
 import axios from "axios";
 export default {
   data: () => ({
-    storageURL: "http://127.0.0.1:8000/storage/",
     chairsURL: "http://127.0.0.1:8000/api/chairs",
     chairs: [],
   }),
   created() {
     axios.get(this.chairsURL).then((response) => (this.chairs = response.data));
-    console.log(this.chairs[0]);
   },
 };
 </script>

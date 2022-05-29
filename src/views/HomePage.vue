@@ -116,7 +116,7 @@ img {
 .telegram_bot__description img {
   width: 15rem;
   height: 15rem;
-  border-radius: 0;
+  border-radius: 15px;
   transition: 0.3s;
 }
 
