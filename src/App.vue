@@ -51,12 +51,6 @@ body {
   color: #2c3e50;
 }
 
-.dark-theme {
-  background-color: var(--dark-theme-bg-color);
-  transition: 0.3s;
-  color: #dbdbdb;
-}
-
 .wrapper {
   margin-left: 54px;
   padding: 15px;

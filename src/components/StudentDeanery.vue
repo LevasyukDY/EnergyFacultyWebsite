@@ -50,10 +50,6 @@ p {
   color: #2c3e50;
 }
 
-.sidebar-dark-theme {
-  color: #dbdbdb;
-}
-
 a:hover {
   text-decoration: underline;
 }

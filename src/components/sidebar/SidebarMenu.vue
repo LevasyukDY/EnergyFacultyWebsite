@@ -58,29 +58,7 @@ export default {
     toggleTheme() {
       this.$store.commit("changeTheme");
       if (this.$store.state.darkTheme == true) {
-        document.body.classList.add("dark-theme");
-        document.querySelector(".sidebar").classList.add("sidebar-dark-theme");
-        document
-          .querySelector(".telegram_bot__info__title")
-          .querySelector("h1")
-          .querySelector("a")
-          .classList.add("sidebar-dark-theme");
-        document
-          .querySelector(".student_deanery__title")
-          .classList.add("sidebar-dark-theme");
-      } else {
-        document.body.classList.remove("dark-theme");
-        document
-          .querySelector(".sidebar")
-          .classList.remove("sidebar-dark-theme");
-        document
-          .querySelector(".telegram_bot__info__title")
-          .querySelector("h1")
-          .querySelector("a")
-          .classList.remove("sidebar-dark-theme");
-        document
-          .querySelector(".student_deanery__title")
-          .classList.remove("sidebar-dark-theme");
+        return;
       }
       this.$router.push(this.$route.path);
     },

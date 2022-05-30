@@ -80,10 +80,6 @@ h1:hover {
   color: #2c3e50;
 }
 
-.telegram_bot__info__title h1 .sidebar-dark-theme {
-  color: #dbdbdb;
-}
-
 h1 a:hover {
   text-decoration: underline;
 }
