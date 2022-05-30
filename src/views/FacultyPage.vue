@@ -89,6 +89,31 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
+    <iframe
+      src="https://yandex.ru/map-widget/v1/-/CCUJeWAccB"
+      frameborder="1"
+      allowfullscreen="true"
+      style="position: relative"
+    ></iframe>
+    <h1>Лекционные кабинеты</h1>
+    <iframe
+      src="https://yandex.ru/map-widget/v1/-/CCUJeWEL-C"
+      frameborder="1"
+      allowfullscreen="true"
+      style="position: relative"
+    ></iframe>
+    <iframe
+      src="https://yandex.ru/map-widget/v1/-/CCUJeWQmhA"
+      frameborder="1"
+      allowfullscreen="true"
+      style="position: relative"
+    ></iframe>
+    <iframe
+      src="https://yandex.ru/map-widget/v1/-/CCUJeWQg-A"
+      frameborder="1"
+      allowfullscreen="true"
+      style="position: relative"
+    ></iframe>
     <h1>Лаборатория химии</h1>
     <iframe
       src="https://www.google.com/maps/embed?pb=!4v1652505598067!6m8!1m7!1sCAoSLEFGMVFpcE5GaUxSM0ZqQk1rbFZPMUcyc1ZBbHV2NGUwRUY3T2s1eXlPMnRq!2m2!1d52.03445!2d113.52993!3f331.47616264369015!4f1.5553465947080838!5f0.7820865974627469"
@@ -108,6 +133,13 @@
       allowfullscreen="true"
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <h1>Кафедра ИВТиПМ</h1>
+    <iframe
+      src="https://yandex.ru/map-widget/v1/-/CCUJeWUKPD"
+      frameborder="1"
+      allowfullscreen="true"
+      style="position: relative"
     ></iframe>
     <h1>Достижения кафедры ИВТиПМ</h1>
     <iframe
