@@ -308,15 +308,6 @@ export default {
   margin-top: 15px;
 }
 
-.page {
-  border: 1px solid black;
-  padding: 10px;
-}
-
-.current-page {
-  border: 2px solid teal;
-}
-
 .not_found__maybe {
   display: flex;
   align-items: center;
@@ -362,8 +353,8 @@ export default {
 }
 
 button {
-  background-color: #395fb6;
-  opacity: 80%;
+  background-color: var(--buttons-color);
+  opacity: 60%;
   transition: 0.3s;
 
   border: none;
@@ -446,16 +437,24 @@ svg {
 
 .search__input {
   width: 30ch;
-  border: 2px solid #395fb6;
+  border: 2px solid var(--sidebar-link-hover);
   border-radius: 15px;
   font-size: 16px;
   padding: 2px 10px;
+  background-color: var(--bg-color);
+  color: var(--font-color);
 }
 
-.search__input .dark-theme {
-  background-color: #4d4d4d;
-  color: #dbdbdb;
-  border: 2px solid #4f4f4f;
+.search__input:focus {
+  border-color: var(--sidebar-link-hover);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+  -webkit-box-shadow: inset 0 1px 1px #00000013,
+    0 0 8px var(--sidebar-link-active);
+  -moz-box-shadow: inset 0 1px 1px #00000013, 0 0 8px var(--sidebar-link-active);
+  box-shadow: inset 0 1px 1px #00000013, 0 0 8px var(--sidebar-link-active);
 }
 
 .news {

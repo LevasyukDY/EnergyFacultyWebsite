@@ -64,7 +64,7 @@ export default {
 
 <style scoped>
 img {
-  box-shadow: #909090 3px 3px 25px;
+  box-shadow: var(--buttons-shadow) 3px 3px 25px;
   border-radius: 15px;
 }
 
@@ -99,10 +99,10 @@ a:hover {
 
 .links a,
 button {
-  background-color: #fff;
-  box-shadow: #c1c1c1 1px 1px 10px;
-  border: 1px solid #6c84be;
-  color: #000;
+  background-color: var(--bg-color);
+  box-shadow: var(--buttons-shadow) 1px 1px 10px;
+  border: 1px solid var(--sidebar-link-hover);
+  color: var(--font-color);
   font-size: 16px;
   padding: 15px 60px;
   border-radius: 15px;
@@ -116,7 +116,7 @@ button {
 .links a:hover,
 button:hover {
   transition: 0.2s;
-  background-color: #3862a1;
+  background-color: var(--buttons-hover);
   cursor: pointer;
   padding: 20px 65px;
   font-size: 18px;

@@ -27,10 +27,10 @@
 }
 
 button {
-  background-color: #fff;
-  box-shadow: #c1c1c1 1px 1px 10px;
-  border: 1px solid #6c84be;
-  color: #000;
+  background-color: var(--bg-color);
+  box-shadow: var(--buttons-shadow) 1px 1px 10px;
+  border: 1px solid var(--sidebar-link-hover);
+  color: var(--font-color);
   font-size: 16px;
   width: 300px;
   height: 100px;
@@ -41,7 +41,7 @@ button {
 
 button:hover {
   transition: 0.2s;
-  background-color: #3862a1;
+  background-color: var(--buttons-hover);
   cursor: pointer;
   width: 350px;
   height: 150px;

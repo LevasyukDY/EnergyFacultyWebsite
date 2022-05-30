@@ -77,7 +77,7 @@ h1:hover {
 
 .telegram_bot__info__title h1 a {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--font-color);
 }
 
 h1 a:hover {

@@ -47,7 +47,7 @@ p {
 
 .student_deanery__title {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--font-color);
 }
 
 a:hover {

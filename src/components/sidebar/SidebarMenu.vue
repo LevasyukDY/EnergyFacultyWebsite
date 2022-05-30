@@ -58,7 +58,9 @@ export default {
     toggleTheme() {
       this.$store.commit("changeTheme");
       if (this.$store.state.darkTheme == true) {
-        return;
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
       }
       this.$router.push(this.$route.path);
     },
@@ -79,7 +81,7 @@ export default {
 
 .sidebar {
   color: white;
-  background-color: #2f5185;
+  background-color: var(--sidebar-bg-color);
 
   float: left;
   position: fixed;
@@ -93,11 +95,6 @@ export default {
 
   display: flex;
   flex-direction: column;
-}
-
-.sidebar-dark-theme {
-  background-color: #0f0f0f;
-  color: white;
 }
 
 .sidebar__logo_content {
@@ -167,11 +164,11 @@ export default {
 }
 
 .sidebar__dark_theme:hover {
-  background-color: #3862a1;
+  background-color: var(--sidebar-link-hover);
 }
 
 .sidebar__dark_theme.active {
-  background-color: #273667;
+  background-color: var(--sidebar-link-active);
 }
 
 .sidebar__dark_theme svg {

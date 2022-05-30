@@ -34,8 +34,26 @@ export default {
 </script>
 
 <style>
-:root {
-  --dark-theme-bg-color: #181818;
+html {
+  --font-color: #2c3e50;
+  --bg-color: #ffffff;
+  --sidebar-bg-color: #2f5185;
+  --sidebar-link-hover: #3862a1;
+  --sidebar-link-active: #273667;
+  --buttons-color: #3e6cb1;
+  --buttons-shadow: #c1c1c1;
+  --buttons-hover: #3862a1;
+}
+
+html[data-theme="dark"] {
+  --font-color: #d5d5d5;
+  --bg-color: #212121;
+  --sidebar-bg-color: #1b1b1b;
+  --sidebar-link-hover: #2f2f2f;
+  --sidebar-link-active: #3d3d3d;
+  --buttons-color: #4e4e4e;
+  --buttons-shadow: #414141;
+  --buttons-hover: #464646;
 }
 
 #app {
@@ -48,7 +66,8 @@ export default {
 body {
   margin: 0%;
   transition: 0.3s;
-  color: #2c3e50;
+  color: var(--font-color);
+  background-color: var(--bg-color);
 }
 
 .wrapper {
