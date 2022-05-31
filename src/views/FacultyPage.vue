@@ -97,6 +97,12 @@
     ></iframe>
     <h1>Лекционные кабинеты</h1>
     <iframe
+      src="https://yandex.ru/map-widget/v1/-/CCUJeWQg-A"
+      frameborder="1"
+      allowfullscreen="true"
+      style="position: relative"
+    ></iframe>
+    <iframe
       src="https://yandex.ru/map-widget/v1/-/CCUJeWEL-C"
       frameborder="1"
       allowfullscreen="true"
@@ -104,12 +110,6 @@
     ></iframe>
     <iframe
       src="https://yandex.ru/map-widget/v1/-/CCUJeWQmhA"
-      frameborder="1"
-      allowfullscreen="true"
-      style="position: relative"
-    ></iframe>
-    <iframe
-      src="https://yandex.ru/map-widget/v1/-/CCUJeWQg-A"
       frameborder="1"
       allowfullscreen="true"
       style="position: relative"

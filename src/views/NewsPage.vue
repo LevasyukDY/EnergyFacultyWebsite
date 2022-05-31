@@ -1,5 +1,20 @@
 <template>
   <div class="filters">
+    <div class="tags">
+      <div class="tag">
+        <button :class="{ active: isActiveTag === 0 }" @click="selectTag(0)">
+          Все
+        </button>
+      </div>
+      <div class="tag" v-for="cat in tags" :key="cat.id">
+        <button
+          :class="{ active: isActiveTag === cat.id }"
+          @click="selectTag(cat.id)"
+        >
+          {{ cat.title }}
+        </button>
+      </div>
+    </div>
     <div class="search">
       <input
         class="search__input"
@@ -9,20 +24,20 @@
         placeholder="Поиск..."
       />
     </div>
-    <div class="tags">
-      <div class="tag">
-        <button :class="{ active: isActive === 0 }" @click="selectTag(0)">
-          Все
-        </button>
-      </div>
-      <div class="tag" v-for="cat in tags" :key="cat.id">
-        <button
-          :class="{ active: isActive === cat.id }"
-          @click="selectTag(cat.id)"
-        >
-          {{ cat.title }}
-        </button>
-      </div>
+  </div>
+  <div class="chairs">
+    <div class="chair">
+      <button :class="{ active: isActiveChair === 0 }" @click="selectChair(0)">
+        Все
+      </button>
+    </div>
+    <div class="chair" v-for="chair in chairs" :key="chair.id">
+      <button
+        :class="{ active: isActiveChair === chair.id }"
+        @click="selectChair(chair.id)"
+      >
+        {{ chair.title }}
+      </button>
     </div>
   </div>
   <div class="news" v-for="i in Math.ceil(news.length / 4)" :key="i">
@@ -69,13 +84,16 @@ export default {
     storageURL: "http://127.0.0.1:8000/storage/",
     newsURL: "http://127.0.0.1:8000/api/news",
     tagsURL: "http://127.0.0.1:8000/api/tags",
+    chairsURL: "http://127.0.0.1:8000/api/chairs",
     page: 0,
     per_page: 8,
     totalPages: 0,
     news: [],
     search: "",
     tags: [],
-    isActive: 0,
+    chairs: [],
+    isActiveTag: 0,
+    isActiveChair: 0,
     alphabet: {
       a: "ф",
       b: "и",
@@ -125,11 +143,12 @@ export default {
   }),
   created() {
     this.fetchTags();
+    this.fetchChairs();
   },
   watch: {
     search() {
       this.page = 1;
-      if (this.isActive === 0) {
+      if (this.isActiveTag == 0 && this.isActiveChair == 0) {
         axios
           .get(this.newsURL, {
             params: {
@@ -139,11 +158,44 @@ export default {
             },
           })
           .then((response) => (this.news = response.data["data"]));
-      } else {
+      } else if (this.isActiveTag == 0 && this.isActiveChair > 0) {
         axios
           .get(this.newsURL, {
             params: {
-              tag_id: this.isActive,
+              chair_id: this.isActiveChair,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then(
+            (response) => (
+              (this.news = response.data["data"]),
+              (this.totalPages = response.data["meta"]["last_page"])
+            )
+          );
+      } else if (this.isActiveTag > 0 && this.isActiveChair == 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              tag_id: this.isActiveTag,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then(
+            (response) => (
+              (this.news = response.data["data"]),
+              (this.totalPages = response.data["meta"]["last_page"])
+            )
+          );
+      } else if (this.isActiveTag > 0 && this.isActiveChair > 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              tag_id: this.isActiveTag,
+              chair_id: this.isActiveChair,
               per_page: this.per_page,
               page: this.page,
               content: this.search,
@@ -178,7 +230,7 @@ export default {
     },
     loadMorePosts() {
       this.page += 1;
-      if (this.isActive === 0) {
+      if (this.isActiveTag === 0) {
         axios
           .get(this.newsURL, {
             params: {
@@ -197,7 +249,7 @@ export default {
         axios
           .get(this.newsURL, {
             params: {
-              tag_id: this.isActive,
+              tag_id: this.isActiveTag,
               per_page: this.per_page,
               page: this.page,
               content: this.search,
@@ -213,6 +265,11 @@ export default {
     },
     fetchTags() {
       axios.get(this.tagsURL).then((response) => (this.tags = response.data));
+    },
+    fetchChairs() {
+      axios
+        .get(this.chairsURL)
+        .then((response) => (this.chairs = response.data));
     },
     changeSearchLang() {
       let search_copy = this.search.toLowerCase();
@@ -267,9 +324,9 @@ export default {
       this.search = this.changeSearchLang();
     },
     selectTag(id) {
-      this.isActive = id;
+      this.isActiveTag = id;
       this.page = 1;
-      if (id > 0) {
+      if (id > 0 && this.isActiveChair > 0) {
         axios
           .get(this.newsURL, {
             params: {
@@ -277,6 +334,78 @@ export default {
               per_page: this.per_page,
               page: this.page,
               content: this.search,
+              chair_id: this.isActiveChair,
+            },
+          })
+          .then((response) => (this.news = response.data["data"]));
+      } else if (id > 0 && this.isActiveChair == 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              tag_id: id,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then((response) => (this.news = response.data["data"]));
+      } else if (id == 0 && this.isActiveChair > 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+              chair_id: this.isActiveChair,
+            },
+          })
+          .then((response) => (this.news = response.data["data"]));
+      } else {
+        axios
+          .get(this.newsURL, {
+            params: {
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then((response) => (this.news = response.data["data"]));
+      }
+    },
+    selectChair(id) {
+      this.isActiveChair = id;
+      this.page = 1;
+      if (id > 0 && this.isActiveTag > 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              tag_id: this.isActiveTag,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+              chair_id: id,
+            },
+          })
+          .then((response) => (this.news = response.data["data"]));
+      } else if (id > 0 && this.isActiveTag == 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              chair_id: id,
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+            },
+          })
+          .then((response) => (this.news = response.data["data"]));
+      } else if (id == 0 && this.isActiveTag > 0) {
+        axios
+          .get(this.newsURL, {
+            params: {
+              per_page: this.per_page,
+              page: this.page,
+              content: this.search,
+              tag_id: this.isActiveTag,
             },
           })
           .then((response) => (this.news = response.data["data"]));
@@ -351,33 +480,47 @@ export default {
     overflow: hidden;
   }
 }
-
-button {
-  background-color: var(--buttons-color);
-  opacity: 60%;
-  transition: 0.3s;
-
-  border: none;
-  color: white;
-  text-shadow: #515151 1px 1px 2px;
-  padding: 5px 15px;
-
-  text-align: center;
-  text-decoration: none;
-
-  display: inline-block;
-  border-radius: 15px;
-
-  &:hover {
-    opacity: 100%;
+.tag,
+.chair {
+  button {
+    opacity: 60%;
     transition: 0.3s;
-    cursor: pointer;
-  }
 
-  &.active {
-    opacity: 100%;
+    border: none;
+    color: white;
+    text-shadow: #515151 1px 1px 2px;
+    padding: 5px 15px;
+
+    text-align: center;
+    text-decoration: none;
+
+    display: inline-block;
+    border-radius: 15px;
+
+    &:hover {
+      opacity: 100%;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    &.active {
+      opacity: 100%;
+    }
   }
 }
+
+.chair {
+  button {
+    background-color: var(--chair-buttons-color);
+  }
+}
+
+.tag {
+  button {
+    background-color: var(--buttons-color);
+  }
+}
+
 svg {
   margin: 5px 15px;
   &:hover {
@@ -435,6 +578,19 @@ svg {
   margin: 0px 7px;
 }
 
+.chairs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  margin-bottom: 15px;
+}
+
+.chair {
+  margin: 0px 7px;
+}
+
 .search__input {
   width: 30ch;
   border: 2px solid var(--sidebar-link-hover);
@@ -476,17 +632,28 @@ svg {
   .filters {
     flex-direction: column;
   }
-  .search {
+  .tags {
     margin-bottom: 10px;
+  }
+  .chairs {
+    justify-content: center;
   }
 }
 
-@media (max-width: 765px) {
+@media (max-width: 780px) {
   .tags {
     flex-grow: 1;
     justify-content: center;
   }
   .tag {
+    margin-bottom: 5px;
+  }
+
+  .chairs {
+    flex-grow: 1;
+    justify-content: center;
+  }
+  .chair {
     margin-bottom: 5px;
   }
 }

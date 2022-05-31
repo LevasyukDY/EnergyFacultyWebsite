@@ -43,6 +43,7 @@ html {
   --buttons-color: #3e6cb1;
   --buttons-shadow: #c1c1c1;
   --buttons-hover: #3862a1;
+  --chair-buttons-color: #ff9845;
 }
 
 html[data-theme="dark"] {
@@ -54,6 +55,7 @@ html[data-theme="dark"] {
   --buttons-color: #4e4e4e;
   --buttons-shadow: #414141;
   --buttons-hover: #464646;
+  --chair-buttons-color: #4e4e4e;
 }
 
 #app {
