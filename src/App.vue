@@ -36,6 +36,7 @@ export default {
 <style>
 html {
   --font-color: #2c3e50;
+  --inverse-font-color: #d5d5d5;
   --bg-color: #ffffff;
   --sidebar-bg-color: #2f5185;
   --sidebar-link-hover: #3862a1;
@@ -44,10 +45,13 @@ html {
   --buttons-shadow: #c1c1c1;
   --buttons-hover: #3862a1;
   --chair-buttons-color: #ff9845;
+  --table-bg-color: #ffffff;
+  --table-bg-color-2: #f0f0f0;
 }
 
 html[data-theme="dark"] {
   --font-color: #d5d5d5;
+  --inverse-font-color: #2c3e50;
   --bg-color: #212121;
   --sidebar-bg-color: #1b1b1b;
   --sidebar-link-hover: #2f2f2f;
@@ -56,6 +60,8 @@ html[data-theme="dark"] {
   --buttons-shadow: #414141;
   --buttons-hover: #464646;
   --chair-buttons-color: #4e4e4e;
+  --table-bg-color: #404040;
+  --table-bg-color-2: #545454;
 }
 
 #app {
