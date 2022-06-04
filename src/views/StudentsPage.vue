@@ -3,14 +3,33 @@
     <h1>Схема кабинетов</h1>
     <div class="floors">
       <div class="floors__buttons">
-        <button @click="changeToFloor4()">4 этаж</button>
-        <button @click="changeToFloor3()">3 этаж</button>
+        <h3>Этажи:</h3>
+        <button :class="{ active: isActive == '4' }" @click="changeToFloor4()">
+          4
+        </button>
+        <button :class="{ active: isActive == '3' }" @click="changeToFloor3()">
+          3
+        </button>
         <div class="floors__2nd-floor_buttons">
-          <button @click="changeToFloor2l()">2-л этаж</button>
-          <button @click="changeToFloor2r()">2-п этаж</button>
+          <button
+            :class="{ active: isActive == '2l' }"
+            @click="changeToFloor2l()"
+          >
+            2-левое
+          </button>
+          <button
+            :class="{ active: isActive == '2r' }"
+            @click="changeToFloor2r()"
+          >
+            2-правое
+          </button>
         </div>
-        <button @click="changeToFloor1()">1 этаж</button>
-        <button @click="changeToFloor0()">0 этаж</button>
+        <button :class="{ active: isActive == '1' }" @click="changeToFloor1()">
+          1
+        </button>
+        <button :class="{ active: isActive == '0' }" @click="changeToFloor0()">
+          0
+        </button>
       </div>
       <div class="floors__images">
         <img
@@ -133,25 +152,26 @@ export default {
     scheduleResult: [],
     teacherResult: [],
     floor: "",
+    isActive: "0",
   }),
   methods: {
     changeToFloor0() {
-      this.floor = "0";
+      this.floor = this.isActive = "0";
     },
     changeToFloor1() {
-      this.floor = "1";
+      this.floor = this.isActive = "1";
     },
     changeToFloor2l() {
-      this.floor = "2l";
+      this.floor = this.isActive = "2l";
     },
     changeToFloor2r() {
-      this.floor = "2r";
+      this.floor = this.isActive = "2r";
     },
     changeToFloor3() {
-      this.floor = "3";
+      this.floor = this.isActive = "3";
     },
     changeToFloor4() {
-      this.floor = "4";
+      this.floor = this.isActive = "4";
     },
     searchByGroup() {
       if (this.searchInputByGroup != "")
@@ -194,6 +214,10 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  margin: 0;
+}
+
 .floors {
   display: flex;
   justify-content: space-evenly;
@@ -204,6 +228,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.floors__buttons button.active {
+  opacity: 100%;
+  transition: 0.3s;
 }
 
 .floors__buttons button {
@@ -227,12 +256,16 @@ export default {
   transition: 0.3s;
 }
 
+.floors__images {
+  max-width: 80%;
+}
+
 .floors__images img {
-  max-width: 100%;
+  width: 100%;
   padding: 5px;
   height: 40vh;
   background-color: var(--floors-bg-color);
-  border-radius: 15px;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
@@ -332,6 +365,16 @@ tr:nth-child(even) {
   .search__schedule {
     flex-direction: column;
     align-items: center;
+  }
+  .floors {
+    flex-direction: column;
+    align-items: center;
+  }
+  .floors__images {
+    max-width: 100%;
+  }
+  .floors__images img {
+    height: auto;
   }
 }
 
