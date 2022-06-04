@@ -12,6 +12,7 @@
   <p><b>Адрес:</b> {{ chairs?.address }}, кабинет {{ chairs?.cabinet }}</p>
   <p><b>Телефон:</b> {{ chairs?.phone_number }}</p>
   <p><b>E-mail:</b> {{ chairs?.email }}</p>
+  <span v-html="chairs?.description"></span>
 </template>
 
 <script>
@@ -32,17 +33,14 @@ export default {
       return "https://www.youtube.com/embed/" + splittedVideo[1];
     },
   },
-  mounted() {
-    // this.videoURL = this.chairs.video;
-    // console.log(this.chairs.video);
-    // let splittedVideo = this.videoURL.split("=");
-    // console.log(splittedVideo[0]);
-    // this.videoURL = "https://www.youtube.com/embed/" + splittedVideo[1];
-  },
 };
 </script>
 
 <style scoped>
+span {
+  text-align: justify;
+}
+
 .video {
   display: flex;
   justify-content: center;

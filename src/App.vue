@@ -47,6 +47,7 @@ html {
   --chair-buttons-color: #ff9845;
   --table-bg-color: #ffffff;
   --table-bg-color-2: #f0f0f0;
+  --floors-bg-color: #ffffff;
 }
 
 html[data-theme="dark"] {
@@ -62,6 +63,7 @@ html[data-theme="dark"] {
   --chair-buttons-color: #4e4e4e;
   --table-bg-color: #404040;
   --table-bg-color-2: #545454;
+  --floors-bg-color: #cbcbcb;
 }
 
 #app {

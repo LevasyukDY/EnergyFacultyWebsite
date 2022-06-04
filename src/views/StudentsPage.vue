@@ -1,5 +1,35 @@
 <template>
   <div class="students">
+    <h1>Схема кабинетов</h1>
+    <div class="floors">
+      <div class="floors__buttons">
+        <button @click="changeToFloor4()">4 этаж</button>
+        <button @click="changeToFloor3()">3 этаж</button>
+        <div class="floors__2nd-floor_buttons">
+          <button @click="changeToFloor2l()">2-л этаж</button>
+          <button @click="changeToFloor2r()">2-п этаж</button>
+        </div>
+        <button @click="changeToFloor1()">1 этаж</button>
+        <button @click="changeToFloor0()">0 этаж</button>
+      </div>
+      <div class="floors__images">
+        <img
+          src="@/assets/images/floors/0.svg"
+          v-if="floor == '0' || floor == ''"
+        />
+        <img src="@/assets/images/floors/1.svg" v-else-if="floor == '1'" />
+        <img
+          src="@/assets/images/floors/2-left.svg"
+          v-else-if="floor == '2l'"
+        />
+        <img
+          src="@/assets/images/floors/2-right.svg"
+          v-else-if="floor == '2r'"
+        />
+        <img src="@/assets/images/floors/3.svg" v-else-if="floor == '3'" />
+        <img src="@/assets/images/floors/4.svg" v-else-if="floor == '4'" />
+      </div>
+    </div>
     <div class="schedule">
       <h1>Поиск расписания</h1>
       <div class="search__schedule">
@@ -102,8 +132,27 @@ export default {
     searchInputTeacher: "",
     scheduleResult: [],
     teacherResult: [],
+    floor: "",
   }),
   methods: {
+    changeToFloor0() {
+      this.floor = "0";
+    },
+    changeToFloor1() {
+      this.floor = "1";
+    },
+    changeToFloor2l() {
+      this.floor = "2l";
+    },
+    changeToFloor2r() {
+      this.floor = "2r";
+    },
+    changeToFloor3() {
+      this.floor = "3";
+    },
+    changeToFloor4() {
+      this.floor = "4";
+    },
     searchByGroup() {
       if (this.searchInputByGroup != "")
         axios
@@ -145,6 +194,48 @@ export default {
 </script>
 
 <style scoped>
+.floors {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.floors__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.floors__buttons button {
+  margin: 5px;
+  opacity: 60%;
+  transition: 0.3s;
+  width: 10ch;
+  border: none;
+  border-radius: 15px;
+  text-shadow: #515151 1px 1px 2px;
+  font-size: 16px;
+  padding: 2px 10px;
+  background-color: var(--chair-buttons-color);
+  color: white;
+  cursor: pointer;
+  word-wrap: normal;
+}
+
+.floors__buttons button:hover {
+  opacity: 100%;
+  transition: 0.3s;
+}
+
+.floors__images img {
+  max-width: 100%;
+  padding: 5px;
+  height: 40vh;
+  background-color: var(--floors-bg-color);
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
 .search__schedule {
   display: flex;
   justify-content: space-evenly;
@@ -197,7 +288,8 @@ tr:nth-child(even) {
   padding-bottom: 10px;
 }
 
-button {
+.schedule button,
+.teachers button {
   width: 10ch;
   border: 2px solid var(--sidebar-link-hover);
   border-radius: 0 15px 15px 0;
@@ -209,7 +301,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.schedule button:hover,
+.teachers button:hover {
   background-color: var(--buttons-hover);
 }
 
