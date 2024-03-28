@@ -1,12 +1,9 @@
 <template>
   <div class="faculty">
-    <!-- <img src="@/assets/images/факультет.png" /> -->
     <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652504903560!6m8!1m7!1sCAoSLEFGMVFpcE5xVVhlVlZFc1JzTGxrdHJOYzU4ZGRnNGVIeGV0b3dIdThodllq!2m2!1d52.0345972!2d113.529075!3f355.40899997066197!4f19.6765493257372!5f0.4000000000000002"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+      src="https://yandex.ru/map-widget/v1/profile/ugc/panoramas?l=stv%2Csta&ll=113.529546%2C52.034545&panorama%5Bdirection%5D=27.912627%2C12.596912&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=113.529088%2C52.034614&panorama%5Bspan%5D=117.022349%2C60.000000&z=19.8"
+      frameborder="1" allowfullscreen="true" style="position: relative">
+    </iframe>
     <h1>О факультете</h1>
     <div class="faculty__text">
       <p>
@@ -78,76 +75,44 @@
     </div>
     <h1>Компьютерные классы</h1>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652505324070!6m8!1m7!1sCAoSLEFGMVFpcE9kbndHX0tYN3l3TTFaTG5RS1dKQ0l0LUdmcVJZOFdyTEdESE9E!2m2!1d52.0347112!2d113.5293667!3f174.60192902493802!4f-9.628630601198267!5f0.7820865974627469"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+      src="https://yandex.ru/map-widget/v1/profile/ugc/panoramas?l=stv%2Csta&ll=113.529546%2C52.034545&panorama%5Bdirection%5D=161.107235%2C-11.149328&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=113.529367%2C52.034711&panorama%5Bspan%5D=117.022349%2C60.000000&z=19.8"
+      frameborder="1" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      style="position:relative;"></iframe>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652505361453!6m8!1m7!1sCAoSLEFGMVFpcE05SG1SZzRid211TnhtNzFXejJIRVc1STZyTXU5YU5yR1JpU2dV!2m2!1d52.0349722!2d113.5292633!3f127.6000511300337!4f-5.67410440043092!5f0.7820865974627469"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-    <iframe
-      src="https://yandex.ru/map-widget/v1/-/CCUJeWAccB"
-      frameborder="1"
-      allowfullscreen="true"
-      style="position: relative"
-    ></iframe>
+      src="https://yandex.ru/map-widget/v1/profile/ugc/panoramas?l=stv%2Csta&ll=113.529546%2C52.034545&panorama%5Bdirection%5D=345.558202%2C-9.637554&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=113.529157%2C52.034863&panorama%5Bspan%5D=117.022349%2C60.000000&z=19.8"
+      frameborder="1" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      style="position:relative;"></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/-/CCUJeWAccB" frameborder="1" allowfullscreen="true" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" style="position: relative"></iframe>
     <h1>Лекционные кабинеты</h1>
-    <iframe
-      src="https://yandex.ru/map-widget/v1/-/CCUJeWQg-A"
-      frameborder="1"
-      allowfullscreen="true"
-      style="position: relative"
-    ></iframe>
-    <iframe
-      src="https://yandex.ru/map-widget/v1/-/CCUJeWEL-C"
-      frameborder="1"
-      allowfullscreen="true"
-      style="position: relative"
-    ></iframe>
-    <iframe
-      src="https://yandex.ru/map-widget/v1/-/CCUJeWQmhA"
-      frameborder="1"
-      allowfullscreen="true"
-      style="position: relative"
-    ></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/-/CCUJeWQg-A" frameborder="1" allowfullscreen="true" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" style="position: relative"></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/-/CCUJeWEL-C" frameborder="1" allowfullscreen="true" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" style="position: relative"></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/-/CCUJeWQmhA" frameborder="1" allowfullscreen="true" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" style="position: relative"></iframe>
     <h1>Лаборатория химии</h1>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652505598067!6m8!1m7!1sCAoSLEFGMVFpcE5GaUxSM0ZqQk1rbFZPMUcyc1ZBbHV2NGUwRUY3T2s1eXlPMnRq!2m2!1d52.03445!2d113.52993!3f331.47616264369015!4f1.5553465947080838!5f0.7820865974627469"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+      src="https://yandex.ru/map-widget/v1/profile/ugc/panoramas?l=stv%2Csta&ll=113.529546%2C52.034545&panorama%5Bdirection%5D=17.329536%2C-4.535320&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=113.530022%2C52.034447&panorama%5Bspan%5D=117.022349%2C60.000000&z=19.8"
+      frameborder="1" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      style="position:relative;"></iframe>
     <h1>Места отдыха</h1>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652505524535!6m8!1m7!1sCAoSLEFGMVFpcE94T0dKMjI1UkV1R0dGT1p5bWdoRmZBM2thVTZhLVhLQWRyZ0Q0!2m2!1d52.0346055!2d113.52938!3f0.768814200545421!4f-3.3743349937843448!5f0.7820865974627469"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+      src="https://yandex.ru/map-widget/v1/profile/ugc/panoramas?l=stv%2Csta&ll=113.529546%2C52.034545&panorama%5Bdirection%5D=322.783289%2C-2.456631&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=113.529319%2C52.034809&panorama%5Bspan%5D=117.022349%2C60.000000&z=19.8"
+      frameborder="1" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      style="position:relative;"></iframe>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652505484683!6m8!1m7!1sCAoSLEFGMVFpcE5LQjd1Tnh6YnlHRnlxN0pWbklRN2lmaGo2ZFJTbG1DYmZXQnls!2m2!1d52.0348805!2d113.52957!3f54.35026352129351!4f-4.453111744782731!5f0.7820865974627469"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+      src="https://yandex.ru/map-widget/v1/profile/ugc/panoramas?l=stv%2Csta&ll=113.529546%2C52.034545&panorama%5Bdirection%5D=0.161672%2C-9.070639&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=113.529349%2C52.034796&panorama%5Bspan%5D=117.022349%2C60.000000&z=19.8"
+      frameborder="1" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      style="position:relative;"></iframe>
     <h1>Кафедра ИВТиПМ</h1>
-    <iframe
-      src="https://yandex.ru/map-widget/v1/-/CCUJeWUKPD"
-      frameborder="1"
-      allowfullscreen="true"
-      style="position: relative"
-    ></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/-/CCUJeWUKPD" frameborder="1" allowfullscreen="true" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" style="position: relative"></iframe>
     <h1>Достижения кафедры ИВТиПМ</h1>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!4v1652505053256!6m8!1m7!1sCAoSLEFGMVFpcE83WHNldVZQVDljZ2N1eEFMcXN2N0FrX2poTl82ejVMS3lvZlV1!2m2!1d52.03451949999999!2d113.5296383!3f0.0956196592550782!4f14.42806457560593!5f0.4000000000000002"
-      allowfullscreen="true"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+      src="https://yandex.ru/map-widget/v1/profile/ugc/panoramas?l=stv%2Csta&ll=113.529546%2C52.034545&panorama%5Bdirection%5D=180.098986%2C16.629505&panorama%5Bfull%5D=true&panorama%5Bpoint%5D=113.529709%2C52.034615&panorama%5Bspan%5D=117.022349%2C60.000000&z=19.8"
+      frameborder="1" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      style="position:relative;"></iframe>
   </div>
 </template>
 
