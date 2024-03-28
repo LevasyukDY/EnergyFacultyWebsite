@@ -2,6 +2,7 @@
     <img width="33%" src="./src/assets/logo.png"> 
 </p>
 
+![](https://img.shields.io/badge/node-21.7.1-green)
 ![](https://img.shields.io/npm/v/npm)
 ![](https://img.shields.io/github/languages/code-size/LevasyukDY/EnergyFacultyWebsite) 
 ![](https://img.shields.io/github/commit-activity/w/LevasyukDY/EnergyFacultyWebsite)
