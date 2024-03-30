@@ -97,7 +97,16 @@
 }
 ```
 
-## Установка проекта
+## Установка через Docker
+```
+docker build -t energy_faculty .
+```
+
+```
+docker run -d --restart unless-stopped -p 8080:80 energy_faculty
+```
+
+## Ручная установка проекта
 ```
 npm install
 ```
