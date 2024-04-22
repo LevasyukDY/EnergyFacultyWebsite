@@ -99,11 +99,11 @@
 
 ## Установка через Docker
 ```
-docker build -t energy_faculty .
+sudo docker build -t energy_faculty .
 ```
 
 ```
-docker run -d --restart unless-stopped -p 8080:80 energy_faculty
+sudo docker run -d --name energy_faculty --restart unless-stopped -p 8080:80 energy_faculty
 ```
 
 ## Ручная установка проекта
